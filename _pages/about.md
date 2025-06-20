@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 
-Since April 2023, I have been working as an **Assistant Manager** at the **Artificial Intelligence Technology Centre**, National Centre for Physics (NCP), Pakistan. I lead research at the **Autonomous AI and Decision Support Laboratory**, where I design and deploy sim2real deep reinforcement learning (DRL) pipelines across heterogeneous robotic systems—such as quadrupeds, hexapods, and robotic manipulators.
+Since April 2023, I am an **Assistant Manager** at **Autonomous AI and Decision Support Laboratory** in the **Artificial Intelligence Technology Centre**, National Centre for Physics (NCP), Pakistan. I lconduct at the , where I design and deploy sim2real deep reinforcement learning (DRL) pipelines across heterogeneous robotic systems—such as quadrupeds, hexapods, and robotic manipulators.
 
 I hold an **MPhil in Microelectronic Engineering and Semiconductor Physics** (2021) from the University of the Punjab, Lahore, where I achieved a 96% thesis score, and a **BSc in Electronic Engineering** (2018) from the Islamia University Bahawalpur. In 2023, I graduated from an elite AI Fellowship at AITeC, securing 3rd place out of 24 fellows. The program included rigorous training in DRL, NLP, GANs, computer vision, Edge AI, and deployment frameworks like Docker and Kubernetes.
 
