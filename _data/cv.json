@@ -1,152 +1,84 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
-    "phone": "",
-    "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
-    "location": {
-      "address": "",
-      "postalCode": "",
-      "city": "Earth",
-      "countryCode": "US",
-      "region": ""
-    },
+    "name": "Ahmad Suleman",
+    "label": "PhD Applicant | Autonomous Systems | Reinforcement Learning | Digital Twins",
+    "email": "engineersuleman118@gmail.com",
+    "phone": "+92-332-167-2116",
+    "location": { "city": "Islamabad", "country": "Pakistan" },
     "profiles": [
-      {
-        "network": "Google Scholar",
-        "username": "",
-        "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-      },
-      {
-        "network": "ORCID",
-        "username": "",
-        "url": "http://orcid.org/yourorcidurl"
-      },
-      {
-        "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
-      }
+      { "network": "GitHub", "username": "ahmadsuleman", "url": "https://github.com/ahmadsuleman" },
+      { "network": "LinkedIn", "username": "ahmad-suleman", "url": "https://www.linkedin.com/in/ahmad-suleman/" }
     ]
   },
-  "work": [],
   "education": [
     {
-      "institution": "GitHub University",
-      "area": "Ph.D in Version Control Theory",
-      "studyType": "",
-      "startDate": "",
+      "institution": "University of the Punjab – Centre of Excellence in Solid State Physics",
+      "studyType": "MPhil.",
+      "area": "Microelectronic Engineering and Semiconductor Physics",
+      "startDate": "2016",
       "endDate": "2018",
-      "gpa": null,
-      "courses": []
+      "gpa": "3.31/4.00"
     },
     {
-      "institution": "GitHub University",
-      "area": "M.S. in Jekyll",
-      "studyType": "",
-      "startDate": "",
+      "institution": "The Islamia University of Bahawalpur – University College of Engineering and Technology",
+      "studyType": "BSc.",
+      "area": "Electronic Engineering",
+      "startDate": "2010",
       "endDate": "2014",
-      "gpa": null,
-      "courses": []
-    },
-    {
-      "institution": "GitHub University",
-      "area": "B.S. in GitHub",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2012",
-      "gpa": null,
-      "courses": []
+      "gpa": "3.00/4.00"
     }
   ],
-  "skills": [],
-  "languages": [],
-  "interests": [],
-  "references": [],
-  "publications": [
+  "experience": [
     {
-      "name": "Paper Title Number 1",
-      "publisher": "Journal 1",
-      "releaseDate": "2009-10-01",
-      "website": "http://academicpages.github.io/files/paper1.pdf",
-      "summary": "This paper is about the number 1. The number 2 is left for future work."
+      "position": "Assistant Manager",
+      "organization": "Autonomous AI & Decision Support Lab, National Centre for Physics",
+      "startDate": "2023-04",
+      "endDate": "Present",
+      "summary": "Leading projects on full-stack autonomous navigation, sim-to-real RL pipelines, SIL/HIL validation, and deployment on quadrupeds, manipulators, and ROS-based robots."
     },
     {
-      "name": "Paper Title Number 2",
-      "publisher": "Journal 1",
-      "releaseDate": "2010-10-01",
-      "website": "http://academicpages.github.io/files/paper2.pdf",
-      "summary": "This paper is about the number 2. The number 3 is left for future work."
+      "position": "AI Fellow",
+      "organization": "Artificial Intelligence Technology Center",
+      "startDate": "2023-01",
+      "endDate": "2023-04",
+      "summary": "Ranked 3rd of 24 fellows in an advanced AI fellowship; trained in GANs, DRL, NLP, CV, Docker, Kubernetes, and edge AI."
     },
     {
-      "name": "Paper Title Number 3",
-      "publisher": "Journal 1",
-      "releaseDate": "2015-10-01",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about the number 3. The number 4 is left for future work."
-    },
-    {
-      "name": "Paper Title Number 4",
-      "publisher": "GitHub Journal of Bugs",
-      "releaseDate": "2024-02-17",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about fixing template issue #693."
+      "position": "Freelance AI Researcher",
+      "organization": "Fiverr & Upwork",
+      "startDate": "2020-02",
+      "endDate": "2022-03",
+      "summary": "Completed 50+ projects worldwide with 98% satisfaction, building deep learning and reinforcement learning systems, and simulation frameworks."
     }
   ],
-  "presentations": [
-    {
-      "name": "Talk 1 on Relevant Topic in Your Field",
-      "event": "UC San Francisco, Department of Testing",
-      "date": "2012-03-01",
-      "location": "San Francisco, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Tutorial 1 on Relevant Topic in Your Field",
-      "event": "UC-Berkeley Institute for Testing Science",
-      "date": "2013-03-01",
-      "location": "Berkeley, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Talk 2 on Relevant Topic in Your Field",
-      "event": "London School of Testing",
-      "date": "2014-02-01",
-      "location": "London, UK",
-      "description": ""
-    },
-    {
-      "name": "Conference Proceeding talk 3 on Relevant Topic in Your Field",
-      "event": "Testing Institute of America 2014 Annual Conference",
-      "date": "2014-03-01",
-      "location": "Los Angeles, CA, USA",
-      "description": ""
-    }
+  "skills": [
+    "Python", "C++", "C#", "MATLAB",
+    "PyTorch", "TensorFlow", "ROS1/ROS2", "Unity3D", "Gazebo",
+    "Jetson Orin/Nano", "STM32", "Raspberry Pi",
+    "Deep Reinforcement Learning", "Computer Vision", "Robotics"
   ],
   "teaching": [
     {
-      "course": "Teaching experience 1",
-      "institution": "University 1, Department",
-      "date": "2014-01-01",
-      "role": "Undergraduate course",
-      "description": ""
+      "title": "Predictive Analytics and Inference Workshop",
+      "organization": "AITeC, NCP",
+      "date": "Nov 2024",
+      "summary": "Delivered advanced training on ML-based inference systems for industry participants."
     },
     {
-      "course": "Teaching experience 2",
-      "institution": "University 1, Department",
-      "date": "2015-01-01",
-      "role": "Workshop",
-      "description": ""
+      "title": "Autonomous Robotics Course",
+      "organization": "AITeC, NCP",
+      "date": "Jul 2025",
+      "summary": "Hands-on course on Deep Learning, ROS2, LLMs, and reinforcement learning."
+    },
+    {
+      "title": "National Workshops on Intelligent Robotics",
+      "organization": "NUST & Sino-Pak Center for AI",
+      "date": "2024",
+      "summary": "Trained 100+ participants on ROS2, DRL deployment, and real-time navigation."
     }
   ],
-  "portfolio": [
-    {
-      "name": "Portfolio item number 1",
-      "category": "portfolio",
-      "date": "",
-      "url": "",
-      "description": "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
-    }
+  "memberships": [
+    "Pakistan Engineering Council (Electro-23375)",
+    "Higher Education Commission Pakistan"
   ]
 }
