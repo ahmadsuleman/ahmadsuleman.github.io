@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dr. [Your Name] — AI & Robotics Researcher</title>
+<title>AHMAD SULEMAN — AI & Robotics Researcher</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -178,12 +178,16 @@ section { padding: 5rem 0; }
   padding: 10px 14px; box-shadow: var(--shadow-md);
   animation: float 6s ease-in-out infinite;
 }
-.float-card.fc1 { top: 10px; left: -30px; animation-delay: 0s; }
+.float-card.fc1 { top: 40px; left: -30px; animation-delay: 0s; }
 .float-card.fc2 { top: 60px; right: -40px; animation-delay: -2s; }
+.float-card.fc3 { bottom: 90px; left: -40px; animation-delay: -3s; }
+.float-card.fc4 { bottom: 70px; right: -40px; animation-delay: -4s; }
 .float-card .fc-icon { font-size: 18px; margin-bottom: 4px; }
 .float-card .fc-text {
-  font-size: 11px; font-weight: 500; color: var(--text-secondary);
-}
+  font-size: 14px; font-weight: 500; color: var(--text-secondary);}
+
+
+
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -521,6 +525,81 @@ footer {
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
+
+
+/* ── News Ticker ── */
+.news-banner {
+  background: #EFF2F8;       /* Change color here — try #F1F5F9, #E8EDF5, #DBEAFE, etc. */
+  max-width: 1000px;          /* Controls banner width — use 100% for full width */
+  margin: 0 auto;            /* Centers it */
+  border-radius: 12px;       /* Rounded corners — remove if full width */
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.news-banner-label {
+  position: absolute; left: 0; top: 0; bottom: 0; z-index: 2;
+  background: var(--accent-dark);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex; align-items: center;
+  padding: 0 1.25rem;
+  white-space: nowrap;
+}
+.news-banner-label::after {
+  content: '';
+  position: absolute; right: -12px; top: 0; bottom: 0;
+  width: 12px;
+  background: linear-gradient(to right, var(--accent-dark), transparent);
+}
+.news-ticker-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  height: calc(1.6em * 5);
+  overflow: hidden;
+  position: relative;
+}
+.news-ticker-track {
+  display: flex;
+  flex-direction: column;
+  animation: ticker-scroll 20s linear infinite;
+}
+.news-ticker-track:hover { animation-play-state: paused; }
+.news-item {
+  color: #dd1111;
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.6;
+  padding: 0 1rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.news-item .news-date {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+.news-item .news-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  flex-shrink: 0;
+}
+@keyframes ticker-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
 </style>
 </head>
 <body>
@@ -528,7 +607,7 @@ footer {
 <!-- ═══ NAVIGATION ═══ -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">[your.name]<span>@robotics</span></a>
+    <a href="#" class="nav-logo">Ahmad Suleman<span></span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
@@ -546,11 +625,10 @@ footer {
   <div class="container">
     <div class="hero-grid">
       <div class="hero-text animate-in">
-        <h1>Teaching robots<br>to <em>learn</em></h1>
+        <h1>Ahmad Suleman<br><em>Electronic Engineer</em></h1>
         <p class="tagline">
-          AI researcher specializing in robot learning, reinforcement learning,
-          and sim-to-real transfer. Building intelligent systems that adapt,
-          reason, and interact with the physical world.
+          AI researcher specializing in robot learning, reinforcement learning, and sim-to-real transfer, 
+          building embodied AI systems that perceive, reason, and act in complex physical environments.
         </p>
         <div class="hero-links">
           <a href="#" class="btn-primary">
@@ -569,25 +647,61 @@ footer {
         </div>
       </div>
       <div class="hero-visual animate-in delay-2">
-        <div class="hero-photo">
-          Your Photo Here
+        <div class="hero-photo" style="width:300px; height:350px; overflow:hidden; border-radius:12px;">
+
+          <img src="data/profile.JPG" 
+              alt="My Photo"
+              style="width:100%; height:100%; object-fit:cover;">
+          
           <div class="hero-badge">
             <div class="badge-label">Seeking</div>
-            <div class="badge-value">PhD / Postdoc</div>
+            <div class="badge-value">PhD / Lecturer</div>
           </div>
         </div>
-        <div class="float-card fc1">
-          <div class="fc-icon">&#x1F916;</div>
-          <div class="fc-text">Robot Learning</div>
+        <div class="float-card fc1" >
+          <div class="fc-icon">🤖</div>
+          <div class="fc-text">Physical AI</div>
         </div>
         <div class="float-card fc2">
+          <div class="fc-icon">🚗</div>
+          <div class="fc-text">Autonomous Vehicles</div>
+        </div>
+        <div class="float-card fc3">
           <div class="fc-icon">&#x1F9E0;</div>
+          <div class="fc-text">Embodied Intelligence</div>
+        </div>
+        <div class="float-card fc4">
+          <div class="fc-icon">🕸️</div>
           <div class="fc-text">Reinforcement Learning</div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
+<!-- ═══ NEWS BANNER ═══ -->
+<div class="news-banner">
+  <div class="news-banner-label" style="position:static; display:inline-flex; border-radius:20px; padding:4px 14px; font-size:14px;">Latest News</div>
+  <div class="news-ticker-wrap">
+    <div class="news-ticker-track">
+      <!-- ── Real items ── -->
+      <div class="news-item" style=" font-size:14px;"><span class="news-date">Jul 2025</span><span class="news-dot"></span>Poster presented at International School in Physics, NCP × ICTP Trieste — RL for Quadruped Locomotion</div>
+      <div class="news-item"><span class="news-date">Jul 2025</span><span class="news-dot"></span>Course delivered: Autonomous Robotics at AITeC NCP — Rated 9/10 by participants</div>
+      <div class="news-item"><span class="news-date">Jun 2026</span><span class="news-dot"></span>Paper accepted in IEEE Transactions on Vehicular Technology — Reward-Augmented RL for Autonomous Parking</div>
+      <div class="news-item"><span class="news-date">Jun 2026</span><span class="news-dot"></span>Paper published in IEEE Transactions on Affective Computing (IF: 9.8) — SMSAT Multimodal Framework</div>
+      <div class="news-item"><span class="news-date">May 2026</span><span class="news-dot"></span>Paper accepted in IEEE Internet of Things Journal (IF: 8.2) — Edge-Aware Digital Twin for V2X</div>
+      <div class="news-item"><span class="news-date">Apr 2026</span><span class="news-dot"></span>Published in IEEE Wireless Communications Magazine (IF: 11.5) — Quantum Skyshield</div>
+      <div class="news-item"><span class="news-date">Mar 2026</span><span class="news-dot"></span>MELF-XFD accepted in IEEE Open Journal of Vehicular Technology — Fault Diagnosis in AUVs</div>
+      <div class="news-item"><span class="news-date">Dec 2025</span><span class="news-dot"></span>Joined Sultan Qaboos University as Collaborative Research Assistant — Digital Twins & 5G-V2X</div>
+      <div class="news-item"><span class="news-date">Sep 2025</span><span class="news-dot"></span>Certified: NVIDIA Fundamentals of Accelerated Computing with CUDA Python</div>
+      <div class="news-item"><span class="news-date">Nov 2024</span><span class="news-dot"></span>Delivered Predictive Analytics Workshop for national R&D organizations — Rated 8/10</div>
+      <!-- ── Duplicates for seamless loop ── -->
+      <div class="news-item"><span class="news-date">Jul 2025</span><span class="news-dot"></span>Poster presented at International School in Physics, NCP × ICTP Trieste — RL for Quadruped Locomotion</div>
+      <div class="news-item"><span class="news-date">Nov 2024</span><span class="news-dot"></span>Delivered Predictive Analytics Workshop for national R&D organizations — Rated 8/10</div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══ ABOUT ═══ -->
 <section id="about">
@@ -597,38 +711,60 @@ footer {
     <div class="about-content">
       <div class="about-text">
         <p>
-          I am a [your current role] at [your institution], working at the intersection
-          of robotics and machine learning. My research focuses on enabling robots to
-          acquire complex manipulation and locomotion skills through learning, with an
-          emphasis on sample-efficient reinforcement learning and sim-to-real transfer.
+          <strong style="color:#0b3d91;">Ahmad Suleman</strong> is an AI researcher working in the areas of 
+          <strong style="color:#0b3d91;">robot learning</strong>, 
+          <strong style="color:#0b3d91;">reinforcement learning</strong>, and 
+          <strong style="color:#0b3d91;">autonomous intelligent systems</strong>. 
+          He is currently serving as an <strong style="color:#0b3d91;">Assistant Manager</strong> at the 
+          <strong>Artificial Intelligence Technology Center (AITeC)</strong>, 
+          <strong>National Centre for Physics, Islamabad, Pakistan</strong>, where he works in the 
+          <strong style="color:#0b3d91;">Autonomous AI and Decision Support Lab</strong>.
         </p>
+
         <p>
-          My journey into robotics began during [your origin story — e.g., an undergraduate
-          project, a personal fascination with autonomous systems, or an internship].
-          Since then, I have been driven by the question: <em>How can we build robots that
-          learn as naturally as humans do?</em>
+          He is also collaborating as a <strong style="color:#0b3d91;">Research Assistant</strong> with 
+          <strong>Sultan Qaboos University, Oman</strong>, conducting research on 
+          <strong style="color:#0b3d91;">digital twin modeling</strong> and 
+          <strong style="color:#0b3d91;">perception-aware autonomous vehicle interaction</strong> 
+          in <strong style="color:#0b3d91;">5G-V2X environments</strong>.
         </p>
+
         <p>
-          Previously, I completed my [degree] in [field] at [university], where I worked
-          with [advisor name] on [brief research description]. I have also gained
-          industry experience at [company/lab], working on [project description].
+          His research focuses on <strong style="color:#0b3d91;">reinforcement learning for autonomous control</strong>, 
+          <strong style="color:#0b3d91;">multimodal perception</strong>, and 
+          <strong style="color:#0b3d91;">simulation-to-real (sim-to-real) transfer</strong> 
+          for <strong style="color:#0b3d91;">robotics and intelligent transportation systems</strong>. 
+          His work integrates <strong style="color:#0b3d91;">deep learning</strong>, 
+          <strong style="color:#0b3d91;">robotic simulation</strong>, and 
+          <strong style="color:#0b3d91;">real-world robotic deployment</strong> 
+          to develop adaptive and reliable autonomous systems.
+        </p>
+
+        <p>
+          He has authored and co-authored research published in leading venues including 
+          <strong style="color:#0b3d91;">IEEE Transactions on Affective Computing</strong>, 
+          <strong style="color:#0b3d91;">IEEE Transactions on Vehicular Technology</strong>, 
+          <strong style="color:#0b3d91;">IEEE Wireless Communications Magazine</strong>, 
+          <strong style="color:#0b3d91;">IEEE Sensors Journal</strong>, 
+          <strong style="color:#0b3d91;">IEEE Internet of Things Journal</strong>, and 
+          <strong style="color:#0b3d91;">IEEE Access</strong>.
         </p>
       </div>
       <div class="about-stats">
         <div class="stat-card">
-          <div class="stat-num">12+</div>
+          <div class="stat-num">8+</div>
           <div class="stat-label">Publications</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">350+</div>
+          <div class="stat-num">100+</div>
           <div class="stat-label">Citations</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">5</div>
+          <div class="stat-num">40+</div>
           <div class="stat-label">Projects</div>
         </div>
         <div class="stat-card">
-          <div class="stat-num">3</div>
+          <div class="stat-num">1</div>
           <div class="stat-label">Awards</div>
         </div>
       </div>
@@ -649,43 +785,44 @@ footer {
         <div class="interest-icon blue">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
         </div>
-        <h3>Reinforcement Learning</h3>
-        <p>Developing sample-efficient RL algorithms for continuous control, with focus on policy optimization and reward shaping for robotic tasks.</p>
+        <h3>Reinforcement Learning for Autonomous Systems</h3>
+        <p>Developing reinforcement learning methods for sequential decision-making, policy optimization, 
+          and adaptive control in complex environments, with applications in intelligent agents, autonomous vehicles, and cyber-physical systems.</p>
       </div>
       <div class="interest-card">
         <div class="interest-icon teal">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
         <h3>Sim-to-Real Transfer</h3>
-        <p>Bridging the reality gap through domain randomization, system identification, and adaptive transfer techniques for robust real-world deployment.</p>
+        <p>Bridging the gap between simulation and real-world deployment using domain randomization, system identification, and adaptive transfer techniques to enable robust policies on physical robotic platforms.</p>
       </div>
       <div class="interest-card">
         <div class="interest-icon coral">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
         </div>
-        <h3>Robot Manipulation</h3>
-        <p>Teaching robots dexterous manipulation skills — grasping, assembly, and tool use — using learning-based approaches combined with tactile sensing.</p>
+        <h3>Autonomous Vehicles & Intelligent Transportation</h3>
+        <p>Designing AI-driven perception and decision-making systems for connected and autonomous vehicles, including V2X-enabled intelligence, driver behavior modeling, and digital twin–based traffic analysis.</p>
       </div>
       <div class="interest-card">
         <div class="interest-icon violet">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 14h3"/><path d="M1 9h3"/><path d="M1 14h3"/></svg>
         </div>
-        <h3>Imitation Learning</h3>
-        <p>Learning from demonstrations using behavioral cloning, inverse RL, and human-in-the-loop feedback to accelerate robot skill acquisition.</p>
+        <h3>Multi-Modal Sensor Fusion for Robust Perception</h3>
+        <p>Developing learning-based sensor fusion methods that integrate heterogeneous modalities such as vision, LiDAR, acoustic, and contextual signals to enhance perception reliability in degraded and uncertain environments, including low-visibility, noisy, and sensor-impaired conditions.</p>
       </div>
       <div class="interest-card">
         <div class="interest-icon blue">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
-        <h3>Foundation Models for Robotics</h3>
-        <p>Leveraging large pre-trained models (vision-language, diffusion) as priors for generalizable robotic perception, planning, and control.</p>
+        <h3>Embodied AI & Robot Learning</h3>
+        <p>Building embodied intelligent agents that learn through interaction with the physical world, integrating perception, reasoning, and control. Exploring vision–language–action (VLA) foundation models to enable generalizable task understanding and adaptive behavior in embodied systems.</p>
       </div>
       <div class="interest-card">
         <div class="interest-icon teal">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3>Multi-Agent Systems</h3>
-        <p>Coordination and collaboration among multiple robots through decentralized learning, communication protocols, and emergent cooperative behavior.</p>
+        <h3>Digital Twins & Connected Systems</h3>
+        <p>Building data-driven digital twin models of cyber-physical systems to monitor, predict, and optimize large-scale intelligent infrastructures such as transportation networks and connected environments.</p>
       </div>
     </div>
   </div>
@@ -695,74 +832,168 @@ footer {
 <section id="publications">
   <div class="container">
     <div class="section-label">// publications</div>
-    <div class="section-title">Selected publications</div>
+    <div class="section-title">Publications</div>
     <div class="section-subtitle">
       A curated selection of my research contributions. Full list available on Google Scholar.
     </div>
     <div class="pub-filters">
       <button class="pub-filter active" onclick="filterPubs('all')">All</button>
+      <button class="pub-filter" onclick="filterPubs('journal')">Journals</button>
+      <button class="pub-filter" onclick="filterPubs('conference')">Conferences</button>
+      <button class="pub-filter" onclick="filterPubs('2026')">2026</button>
       <button class="pub-filter" onclick="filterPubs('2025')">2025</button>
       <button class="pub-filter" onclick="filterPubs('2024')">2024</button>
       <button class="pub-filter" onclick="filterPubs('2023')">2023</button>
-      <button class="pub-filter" onclick="filterPubs('journal')">Journals</button>
-      <button class="pub-filter" onclick="filterPubs('conference')">Conferences</button>
+      <button class="pub-filter" onclick="filterPubs('2022')">2022</button>
+      <button class="pub-filter" onclick="filterPubs('underReview')">Under Review</button>
+      <!-- <button class="pub-filter" onclick="filterPubs('accepted')">Accepted</button> -->
+      <!-- <button class="pub-filter" onclick="filterPubs('inprogress')">In Progress</button> -->
     </div>
     <div class="pub-list">
       <!-- Pub 1 -->
-      <div class="pub-item" data-year="2025" data-type="conference">
-        <div class="pub-year">2025 &middot; Conference</div>
-        <div class="pub-title">Adaptive Sim-to-Real Transfer for Dexterous Manipulation via Meta-Reinforcement Learning</div>
-        <div class="pub-authors"><strong>[Your Name]</strong>, Collaborator A, Collaborator B, Advisor Name</div>
-        <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA 2025)</div>
+      <!-- 2026 -->
+      <div class="pub-item" data-year="2026" data-type="journal">
+        <div class="pub-year">2026 &middot; Accepted</div>
+        <div class="pub-title">MELF-XFD: Trustworthy and Interpretable Multi-Expert Fusion for Safety-Critical Fault Diagnosis in Autonomous Underwater Vehicles</div>
+        <div class="pub-authors">Misha Urooj Khan, <strong>Ahmad Suleman</strong>, Yazeed Alkhrijah, Zeeshan Kaleem</div>
+        <div class="pub-venue">IEEE Open Journal of Vehicular Technology</div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="pub-item" data-year="2025" data-type="journal">
+        <div class="pub-year">2025 &middot; Journal</div>
+        <div class="pub-title">SMSAT: A Multimodal Acoustic Dataset and Deep Contrastive Learning Framework for Affective and Physiological Modeling of Spiritual Meditation</div>
+        <div class="pub-authors"><strong>Ahmad Suleman</strong>, et al.</div>
+        <div class="pub-venue">IEEE Transactions on Affective Computing</div>
         <div class="pub-tags">
-          <span class="pub-tag pdf">PDF</span>
-          <span class="pub-tag code">Code</span>
-          <span class="pub-tag award">Best Paper Finalist</span>
+          <a class="pub-tag pdf" href="https://ieeexplore.ieee.org/document/11346996">PDF</a>
+          <a class="pub-tag code" href="https://github.com/ahmadsuleman/SMSAT-Time-Series-Acoustic-Data">Code</a>
         </div>
       </div>
-      <!-- Pub 2 -->
-      <div class="pub-item" data-year="2024" data-type="journal">
-        <div class="pub-year">2024 &middot; Journal</div>
-        <div class="pub-title">Sample-Efficient Policy Optimization with Learned World Models for Contact-Rich Manipulation</div>
-        <div class="pub-authors"><strong>[Your Name]</strong>, Collaborator C, Advisor Name</div>
-        <div class="pub-venue">IEEE Transactions on Robotics (T-RO)</div>
+
+      <div class="pub-item" data-year="2026" data-type="journal">
+        <div class="pub-year">2026 &middot; Accepted</div>
+        <div class="pub-title">Reward-Augmented Reinforcement Learning for Continuous Control in Precision Autonomous Parking via Policy Optimization Methods</div>
+        <div class="pub-authors"><strong>Ahmad Suleman</strong>, et al.</div>
+        <div class="pub-venue">IEEE Transactions on Vehicular Technology</div>
         <div class="pub-tags">
-          <span class="pub-tag pdf">PDF</span>
-          <span class="pub-tag code">Code</span>
+          <a class="pub-tag pdf" href="https://arxiv.org/abs/2507.19642">PDF</a>
+          <a class="pub-tag code" href="https://github.com/ahmadsuleman/Precision-Autonomous-Parking-via-Reward-Augmented-Reinforcement-Learning">Code</a>
         </div>
       </div>
-      <!-- Pub 3 -->
-      <div class="pub-item" data-year="2024" data-type="conference">
-        <div class="pub-year">2024 &middot; Conference</div>
-        <div class="pub-title">Language-Conditioned Reward Shaping for Generalizable Robot Skill Learning</div>
-        <div class="pub-authors">Collaborator D, <strong>[Your Name]</strong>, Collaborator E, Advisor Name</div>
-        <div class="pub-venue">Conference on Robot Learning (CoRL 2024)</div>
+
+      <div class="pub-item" data-year="2026" data-type="journal">
+        <div class="pub-year">2026 &middot; Journal</div>
+        <div class="pub-title">Quantum Skyshield: Quantum Key Distribution and Post-Quantum Authentication for Low-Altitude Wireless Networks in Adverse Skies</div>
+        <div class="pub-authors">Zeeshan Kaleem, Misha Urooj Khan, <strong>Ahmad Suleman</strong>, et al.</div>
+        <div class="pub-venue">IEEE Wireless Communications Magazine</div>
         <div class="pub-tags">
-          <span class="pub-tag pdf">PDF</span>
+          <a class="pub-tag pdf" href="https://ieeexplore.ieee.org/abstract/document/11370329">PDF</a>
         </div>
       </div>
-      <!-- Pub 4 -->
-      <div class="pub-item" data-year="2023" data-type="conference">
-        <div class="pub-year">2023 &middot; Conference</div>
-        <div class="pub-title">Robust Locomotion Policies via Curriculum-Driven Domain Randomization</div>
-        <div class="pub-authors"><strong>[Your Name]</strong>, Collaborator F, Advisor Name</div>
-        <div class="pub-venue">Robotics: Science and Systems (RSS 2023)</div>
-        <div class="pub-tags">
-          <span class="pub-tag pdf">PDF</span>
-          <span class="pub-tag code">Code</span>
-          <span class="pub-tag award">Oral Presentation</span>
-        </div>
+
+      <div class="pub-item" data-year="2026" data-type="underReview">
+        <div class="pub-year">2026 &middot; Under Review</div>
+        <div class="pub-title">Edge-Aware Digital Twin for Real-Time Driver Behavior and Route Anomaly Prediction under 5G-V2X Constraints</div>
+        <div class="pub-authors">Ajmal Khan, Misha Urooj Khan, <strong>Ahmad Suleman</strong>, Zeeshan Kaleem, Dusit Niyato</div>
+        <div class="pub-venue">IEEE Internet of Things Journal</div>
       </div>
-      <!-- Pub 5 -->
+
+      <div class="pub-item" data-year="2025" data-type="underReview">
+        <div class="pub-year">2025 &middot; Under Review</div>
+        <div class="pub-title">Infra2RGB PixNet: Multi-Scale GAN with Category-Adaptive Dual Attention for Robust Image Translation in Autonomous Vehicles</div>
+        <div class="pub-authors"><strong>Ahmad Suleman</strong>, et al.</div>
+        <div class="pub-venue">Submitted to IEEE Transactions on Intelligent Transportation Systems</div>
+      </div>
+
+      <!-- 2023 -->
       <div class="pub-item" data-year="2023" data-type="journal">
         <div class="pub-year">2023 &middot; Journal</div>
-        <div class="pub-title">Tactile-Guided Manipulation: Integrating Learned Contact Models with Model-Predictive Control</div>
-        <div class="pub-authors">Collaborator G, <strong>[Your Name]</strong>, Advisor Name</div>
-        <div class="pub-venue">The International Journal of Robotics Research (IJRR)</div>
+        <div class="pub-title">Maximizing Renewable Energy Usage for Pelagic Islands Network of Microgrids Using Deep Reinforcement Learning</div>
+        <div class="pub-authors">M. Asim Amin, <strong>Ahmad Suleman</strong>, Muhammad Waseem, et al.</div>
+        <div class="pub-venue">IEEE Access</div>
         <div class="pub-tags">
-          <span class="pub-tag pdf">PDF</span>
+          <a class="pub-tag pdf" href="https://doi.org/10.1109/ACCESS.2023.3302895">PDF</a>
+          <a class="pub-tag code" href="https://github.com/ahmadsuleman/Deep-Reinforcement-Learning-for-Renewable-Energy-Maximization">Code</a>
         </div>
       </div>
+
+      <!-- 2022 -->
+      <div class="pub-item" data-year="2022" data-type="journal">
+        <div class="pub-year">2022 &middot; Journal</div>
+        <div class="pub-title">Situation-aware BDI Reasoning to Detect Early Symptoms of Covid 19 using Smartwatch</div>
+        <div class="pub-authors">Kiran Saleem, et al., <strong>Ahmad Suleman</strong></div>
+        <div class="pub-venue">IEEE Sensors Journal</div>
+        <div class="pub-tags">
+          <a class="pub-tag pdf" href="https://doi.org/10.1109/JSEN.2022.3156819">PDF</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-year="2022" data-type="conference">
+        <div class="pub-year">2022 &middot; Conference</div>
+        <div class="pub-title">Smart Scheduling of EVs Through Intelligent Home Energy Management Using Deep Reinforcement Learning</div>
+        <div class="pub-authors"><strong>Ahmad Suleman</strong>, et al.</div>
+        <div class="pub-venue">17th International Conference on Emerging Technologies (ICET)</div>
+        <div class="pub-tags">
+          <a class="pub-tag pdf" href="https://doi.org/10.1109/ICET56601.2022.10004664">PDF</a>
+          <a class="pub-tag code" href="https://github.com/ahmadsuleman/Intelligent-Home-Energy-Management">Code</a>
+        </div>
+      </div>
+
+      <div class="pub-item" data-year="2022" data-type="conference">
+        <div class="pub-year">2022 &middot; Conference</div>
+        <div class="pub-title">Profit Maximization by Integrating Demand Response in Multiple VPPs Optimal Scheduling</div>
+        <div class="pub-authors">M. A. Amin, <strong>Ahmad Suleman</strong>, T. Korõtko, et al.</div>
+        <div class="pub-venue">International Conference on Electrical Engineering and Sustainable Technologies (ICEEST)</div>
+        <div class="pub-tags">
+          <a class="pub-tag pdf" href="https://doi.org/10.1109/ICEEST56292.2022.10077867">PDF</a>
+        </div>
+      </div>
+
+      <!-- 2025 UNDER REVIEW -->
+
+      <div class="pub-item" data-year="2025" data-type="underReview">
+        <div class="pub-year">2025 &middot; Under Review</div>
+        <div class="pub-title">An Integrated & Intelligent Framework for EV Charging Infrastructure Placement and Prioritization</div>
+        <div class="pub-authors">Misha Urooj Khan, Yazeed Alkhrijah, Lubaid Zulfiqar, <strong>Ahmad Suleman</strong>, Hareem Khan, Muhammad Abdullah Husnain Ali Faiz</div>
+        <div class="pub-venue">Submitted to IEEE Aerospace and Electronic Systems Magazine</div>
+      </div>
+
+      <div class="pub-item" data-year="2025" data-type="underReview">
+        <div class="pub-year">2025 &middot; Under Review</div>
+        <div class="pub-title">Data-Driven Physics Compressed Cascaded Feature Micro-Models for Cross-Scale Propeller Thrust Prediction</div>
+        <div class="pub-authors">Mohammad Irfan Alam, Misha Urooj Khan, <strong>Ahmad Suleman</strong>, Zeeshan Kaleem</div>
+        <div class="pub-venue">Submitted to IEEE Transactions on Industrial Electronics</div>
+      </div>
+
+      <div class="pub-item" data-year="2025" data-type="underReview">
+        <div class="pub-year">2025 &middot; Under Review</div>
+        <div class="pub-title">Federated Driver Digital Twin (FDDT): Secure, Adaptive, and Edge-Deployable Private Models for Connected Vehicles</div>
+        <div class="pub-authors">Ajmal Khan, Misha Urooj Khan, <strong>Ahmad Suleman</strong>, Dong Seog Han, Kamarul Ariffin Noordin, Naveed Iqbal, Arash Heidari</div>
+        <div class="pub-venue">Submitted to IEEE Open Journal of the Computer Society</div>
+      </div>
+
+      <div class="pub-item" data-year="2025" data-type="underReview">
+        <div class="pub-year">2025 &middot; Under Review</div>
+        <div class="pub-title">E3L: Ethical and Explainable Ensemble Learning on Multimodal Bio-signals for Sleep Stage Classification</div>
+        <div class="pub-authors">Hareem Khan, Yazeed Alkhrijah, Misha Urooj Khan, <strong>Ahmad Suleman</strong>, et al.</div>
+        <div class="pub-venue">Submitted to IEEE Open Journal of the Computer Society</div>
+      </div>
+
+
+      <!-- 2026 IN PROGRESS -->
+
+      <div class="pub-item" data-year="2026" data-type="underReview">
+        <div class="pub-year">2026 &middot; Under Review</div>
+        <div class="pub-title">Causal-Invariant Digital Twin for Robust Autonomous Vehicle Decision Validation under V2X Distribution Shifts</div>
+        <div class="pub-authors">Ajmal Khan, Misha Urooj Khan, <strong>Ahmad Suleman</strong></div>
+        <div class="pub-venue">IEEE Open Journal of Vehicular Technology</div>
+      </div>
+
+
+
+
+
     </div>
   </div>
 </section>
@@ -1138,7 +1369,7 @@ footer {
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="container">
-    &copy; 2025 [Your Name]. Built with care for the research community.
+    &copy; 2026 Ahmad Suleman. Built with care for the research community.
   </div>
 </footer>
 
@@ -1154,11 +1385,13 @@ window.addEventListener('scroll', () => {
 function filterPubs(filter) {
   document.querySelectorAll('.pub-filter').forEach(btn => btn.classList.remove('active'));
   event.target.classList.add('active');
-  
+
+  const typeFilters = ['journal', 'conference', 'underReview', 'accepted', 'inprogress'];
+
   document.querySelectorAll('.pub-item').forEach(item => {
     if (filter === 'all') {
       item.style.display = 'block';
-    } else if (filter === 'journal' || filter === 'conference') {
+    } else if (typeFilters.includes(filter)) {
       item.style.display = item.dataset.type === filter ? 'block' : 'none';
     } else {
       item.style.display = item.dataset.year === filter ? 'block' : 'none';
