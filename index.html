@@ -79,7 +79,7 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
 section { padding: 5rem 0; }
 
 .section-label {
-  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  font-family: var(--font-mono); font-size: 14px; font-weight: 500;
   color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em;
   margin-bottom: 0.75rem;
 }
@@ -610,11 +610,14 @@ footer {
     <a href="#" class="nav-logo">Ahmad Suleman<span></span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
-      <li><a href="#research">Research</a></li>
+      <li><a href="#research">Research Interests</a></li>
       <li><a href="#publications">Publications</a></li>
-      <li><a href="#projects">Projects</a></li>
+       <li><a href="#experience">Experience</a></li>
+       <li><a href="#education">Education</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#blog">Blog</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#blog">Blogs</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -625,7 +628,8 @@ footer {
   <div class="container">
     <div class="hero-grid">
       <div class="hero-text animate-in">
-        <h1>Ahmad Suleman<br><em>Electronic Engineer</em></h1>
+        <!-- <h1>Ahmad Suleman<br><em>Electronic Engineer</em></h1> -->
+        <h1>Ahmad Suleman<br><em style="font-size: 0.75em;">Electronic Engineer</em></h1>
         <p class="tagline">
           AI researcher specializing in robot learning, reinforcement learning, and sim-to-real transfer, 
           building embodied AI systems that perceive, reason, and act in complex physical environments.
@@ -686,19 +690,16 @@ footer {
   <div class="news-ticker-wrap">
     <div class="news-ticker-track">
       <!-- ── Real items ── -->
-      <div class="news-item" style=" font-size:14px;"><span class="news-date">Jul 2025</span><span class="news-dot"></span>Poster presented at International School in Physics, NCP × ICTP Trieste — RL for Quadruped Locomotion</div>
-      <div class="news-item"><span class="news-date">Jul 2025</span><span class="news-dot"></span>Course delivered: Autonomous Robotics at AITeC NCP — Rated 9/10 by participants</div>
-      <div class="news-item"><span class="news-date">Jun 2026</span><span class="news-dot"></span>Paper accepted in IEEE Transactions on Vehicular Technology — Reward-Augmented RL for Autonomous Parking</div>
-      <div class="news-item"><span class="news-date">Jun 2026</span><span class="news-dot"></span>Paper published in IEEE Transactions on Affective Computing (IF: 9.8) — SMSAT Multimodal Framework</div>
-      <div class="news-item"><span class="news-date">May 2026</span><span class="news-dot"></span>Paper accepted in IEEE Internet of Things Journal (IF: 8.2) — Edge-Aware Digital Twin for V2X</div>
-      <div class="news-item"><span class="news-date">Apr 2026</span><span class="news-dot"></span>Published in IEEE Wireless Communications Magazine (IF: 11.5) — Quantum Skyshield</div>
-      <div class="news-item"><span class="news-date">Mar 2026</span><span class="news-dot"></span>MELF-XFD accepted in IEEE Open Journal of Vehicular Technology — Fault Diagnosis in AUVs</div>
-      <div class="news-item"><span class="news-date">Dec 2025</span><span class="news-dot"></span>Joined Sultan Qaboos University as Collaborative Research Assistant — Digital Twins & 5G-V2X</div>
-      <div class="news-item"><span class="news-date">Sep 2025</span><span class="news-dot"></span>Certified: NVIDIA Fundamentals of Accelerated Computing with CUDA Python</div>
       <div class="news-item"><span class="news-date">Nov 2024</span><span class="news-dot"></span>Delivered Predictive Analytics Workshop for national R&D organizations — Rated 8/10</div>
-      <!-- ── Duplicates for seamless loop ── -->
       <div class="news-item"><span class="news-date">Jul 2025</span><span class="news-dot"></span>Poster presented at International School in Physics, NCP × ICTP Trieste — RL for Quadruped Locomotion</div>
-      <div class="news-item"><span class="news-date">Nov 2024</span><span class="news-dot"></span>Delivered Predictive Analytics Workshop for national R&D organizations — Rated 8/10</div>
+      <div class="news-item"><span class="news-date">Jul 2025</span><span class="news-dot"></span>Course delivered: Autonomous Robotics at AITeC NCP — Rated 9/10 by participants</div>
+      <div class="news-item"><span class="news-date">Sep 2025</span><span class="news-dot"></span>Joined Sultan Qaboos University as Collaborative Research Assistant — Digital Twins & 5G-V2X</div>
+      <div class="news-item"><span class="news-date">Dec 2025</span><span class="news-dot"></span>Paper published in IEEE Transactions on Affective Computing (IF: 9.8) — SMSAT Multimodal Framework</div>
+      <div class="news-item"><span class="news-date">Feb 2026</span><span class="news-dot"></span>Paper accepted in IEEE Transactions on Vehicular Technology — Reward-Augmented RL for Autonomous Parking</div>
+      <!-- <div class="news-item"><span class="news-date">May 2026</span><span class="news-dot"></span>Paper accepted in IEEE Internet of Things Journal (IF: 8.2) — Edge-Aware Digital Twin for V2X</div> -->
+      <div class="news-item"><span class="news-date">Jan 2026</span><span class="news-dot"></span>Published in IEEE Wireless Communications Magazine (IF: 11.5) — Quantum Skyshield</div>
+      <div class="news-item"><span class="news-date">Feb 2026</span><span class="news-dot"></span>MELF-XFD accepted in IEEE Open Journal of Vehicular Technology — Fault Diagnosis in AUVs</div>
+      <div class="news-item"><span class="news-date">Sep 2025</span><span class="news-dot"></span>Certified: NVIDIA Fundamentals of Accelerated Computing with CUDA Python</div>
     </div>
   </div>
 </div>
@@ -706,8 +707,8 @@ footer {
 <!-- ═══ ABOUT ═══ -->
 <section id="about">
   <div class="container">
-    <div class="section-label">// about me</div>
-    <div class="section-title">The researcher behind the algorithms</div>
+    <div class="section-label"></div>
+    <div class="section-title">About</div>
     <div class="about-content">
       <div class="about-text">
         <p>
@@ -715,14 +716,15 @@ footer {
           <strong style="color:#0b3d91;">robot learning</strong>, 
           <strong style="color:#0b3d91;">reinforcement learning</strong>, and 
           <strong style="color:#0b3d91;">autonomous intelligent systems</strong>. 
-          He is currently serving as an <strong style="color:#0b3d91;">Assistant Manager</strong> at the 
-          <strong>Artificial Intelligence Technology Center (AITeC)</strong>, 
+          He received his <strong> BSc Electronic Engineering </strong> from UCET IUB in 2010-14. He received <strong>MPhil Microelectronic Engineering</strong> from Punjab University, Lahore in 2016-18. 
+          Since last <strong> 3 years</strong> , he has been serving as an <strong style="color:#0b3d91;">Assistant Manager</strong> at the 
+          <strong style="color:#0b3d91;">Artificial Intelligence Technology Center (AITeC)</strong>, 
           <strong>National Centre for Physics, Islamabad, Pakistan</strong>, where he works in the 
-          <strong style="color:#0b3d91;">Autonomous AI and Decision Support Lab</strong>.
+          <strong style="color:#0b3d91;">Autonomous AI and Decision Support Lab</strong>. He has organized and delivered four annual national-level training workshops for professionals from the high-technology industry.
         </p>
 
         <p>
-          He is also collaborating as a <strong style="color:#0b3d91;">Research Assistant</strong> with 
+          He is also collaborating remotely as a <strong style="color:#0b3d91;">Research Assistant</strong> with 
           <strong>Sultan Qaboos University, Oman</strong>, conducting research on 
           <strong style="color:#0b3d91;">digital twin modeling</strong> and 
           <strong style="color:#0b3d91;">perception-aware autonomous vehicle interaction</strong> 
@@ -730,14 +732,8 @@ footer {
         </p>
 
         <p>
-          His research focuses on <strong style="color:#0b3d91;">reinforcement learning for autonomous control</strong>, 
-          <strong style="color:#0b3d91;">multimodal perception</strong>, and 
-          <strong style="color:#0b3d91;">simulation-to-real (sim-to-real) transfer</strong> 
-          for <strong style="color:#0b3d91;">robotics and intelligent transportation systems</strong>. 
-          His work integrates <strong style="color:#0b3d91;">deep learning</strong>, 
-          <strong style="color:#0b3d91;">robotic simulation</strong>, and 
-          <strong style="color:#0b3d91;">real-world robotic deployment</strong> 
-          to develop adaptive and reliable autonomous systems.
+          Prior to joining AITeC, he spent <strong> two years </strong> working as an <strong style="color:#0b3d91;">independent Reinforcement Learning Research Engineer</strong>, 
+          delivering research and development projects for international clients through freelance platforms and professional networks.
         </p>
 
         <p>
@@ -748,7 +744,21 @@ footer {
           <strong style="color:#0b3d91;">IEEE Sensors Journal</strong>, 
           <strong style="color:#0b3d91;">IEEE Internet of Things Journal</strong>, and 
           <strong style="color:#0b3d91;">IEEE Access</strong>.
+          He is currently serving as reviewer of several prestigious Journals like <strong>IEEE Transactions on Vehicular Technology, IEEE Access , IEEE Transactions on Network and Service Management, 
+          Springer Nature Soft Computing, and Springer Nature Energy Systems</strong>
         </p>
+
+        <p>
+          His research focuses on <strong style="color:#0b3d91;">reinforcement learning for autonomous control</strong>, 
+          <strong style="color:#0b3d91;">multimodal perception</strong>, and 
+          <strong style="color:#0b3d91;">simulation-to-real transfer</strong> 
+          for <strong style="color:#0b3d91;">robotics and intelligent transportation systems</strong>. 
+          His work integrates <strong style="color:#0b3d91;">deep learning</strong>, 
+          <strong style="color:#0b3d91;">robotic simulation</strong>, and 
+          <strong style="color:#0b3d91;">real-world robotic deployment</strong> 
+          to develop adaptive and reliable autonomous systems.
+        </p>
+        
       </div>
       <div class="about-stats">
         <div class="stat-card">
@@ -775,10 +785,10 @@ footer {
 <!-- ═══ RESEARCH INTERESTS ═══ -->
 <section id="research" style="background: var(--bg-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
   <div class="container">
-    <div class="section-label">// research interests</div>
-    <div class="section-title">Bridging learning and physical intelligence</div>
+    <div class="section-label"></div>
+    <div class="section-title">Research Interests</div>
     <div class="section-subtitle">
-      My research spans the full pipeline from algorithmic foundations to real-world deployment on robotic platforms.
+      His research explores learning-based algorithms and their deployment in real-world autonomous and robotic systems.
     </div>
     <div class="interests-grid">
       <div class="interest-card">
@@ -831,10 +841,9 @@ footer {
 <!-- ═══ PUBLICATIONS ═══ -->
 <section id="publications">
   <div class="container">
-    <div class="section-label">// publications</div>
+    <div class="section-label"></div>
     <div class="section-title">Publications</div>
     <div class="section-subtitle">
-      A curated selection of my research contributions. Full list available on Google Scholar.
     </div>
     <div class="pub-filters">
       <button class="pub-filter active" onclick="filterPubs('all')">All</button>
@@ -998,28 +1007,256 @@ footer {
   </div>
 </section>
 
+
+
+<!-- ═══ EXPERIENCE & EDUCATION ═══ -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label"></div>
+    <div class="section-title">Experience</div>
+    <div class="timeline">
+
+      <div class="timeline-item current">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Dec 2025 — Present</div>
+        <div class="timeline-role">Research Assistant (Collaborative)</div>
+        <div class="timeline-place">Sultan Qaboos University, Muscat, Oman</div>
+        <div class="timeline-desc">Conducting data-driven research on digital twin modeling for autonomous vehicle interaction in 5G-V2X environments. Performing dataset curation, preprocessing, and empirical evaluation. Leading manuscript preparation targeting Q1 venues in autonomous vehicles and intelligent transportation systems.</div>
+      </div>
+
+      <div class="timeline-item current">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Apr 2023 — Apr 2026</div>
+        <div class="timeline-role">Assistant Manager — Autonomous AI & Decision Support Lab</div>
+        <div class="timeline-place">AI Technology Center, National Centre for Physics, Islamabad, Pakistan</div>
+        <div class="timeline-desc">Lead researcher developing perception-driven navigation and control pipelines for real-world robotic platforms. Designed sim-to-real RL frameworks in PyTorch. Deployed multimodal autonomy stacks on quadrupeds, hexapods, and ROS-based wheeled robots integrating perception, SLAM, and navigation. Implemented embedded edge inference on Jetson platforms with SIL/HIL validation. Explored RLVR for LLM fine-tuning. Mentored research interns and coordinated national AI training initiatives.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Jan 2023 — Apr 2023</div>
+        <div class="timeline-role">AI Fellow</div>
+        <div class="timeline-place">AI Technology Center, National Centre for Physics, Islamabad, Pakistan</div>
+        <div class="timeline-desc">Ranked 3rd among 24 fellows in a competitive AI fellowship, leading to appointment as Assistant Manager. Developed foundations in data-driven learning, computer vision, and reinforcement learning. Built simulation environments and validated DRL policies in dynamic virtual settings.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Feb 2020 — Mar 2022</div>
+        <div class="timeline-role">AI Freelance Researcher</div>
+        <div class="timeline-place">Independent AI Research Practitioner — Global</div>
+        <div class="timeline-desc">Conducted independent research spanning deep learning, deep reinforcement learning, and simulation-based modeling. Implemented RL algorithms (DQN, PPO, SAC, DDPG, TD3, GRPO) with reward shaping strategies. Developed simulation environments using PyBullet, Unity3D, and ROS-Gazebo for autonomous control experimentation.</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Aug 2015 — Mar 2016</div>
+        <div class="timeline-role">Assistant Systems Engineer</div>
+        <div class="timeline-place">Intelligent Product and Software Solutions (IPASS), Faisalabad, Pakistan</div>
+        <div class="timeline-desc">Contributed to FPGA-based control system development for industrial printing machines using Verilog and Xilinx ISE.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="education">
+  <div class="container">
+    <div class="section-label"></div>
+    <div class="section-title">Education</div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2016 — 2018</div>
+        <div class="timeline-role">MPhil. Microelectronic Engineering & Semiconductor Physics</div>
+        <div class="timeline-place">University of the Punjab — Centre of Excellence in Solid State Physics, Lahore, Pakistan</div>
+        <ul class="timeline-bullets">
+          <li>CGPA: 3.31/4.00</li>
+          <li>Achieved 96% in master's degree research project</li>
+        </ul>
+        <div class="project-tech" style="margin-top: 10px;">
+          <span class="tech-tag">Engineering of Microelectronic Devices</span>
+          <span class="tech-tag">Optical Lithography Lab</span>
+          <span class="tech-tag">Optoelectronic Devices</span>
+          <span class="tech-tag">Semiconductor Electronic Devices</span>
+          <span class="tech-tag">Experimental Characterization Techniques</span>
+          <span class="tech-tag">FPGA Based Design</span>
+        </div>
+      </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-date">2010 — 2014</div>
+      <div class="timeline-role">BSc. Electronic Engineering</div>
+      <div class="timeline-place">The Islamia University of Bahawalpur — University College of Engineering & Technology, Bahawalpur, Pakistan</div>
+      <ul class="timeline-bullets">
+        <li>CGPA: 3.00/4.00</li>
+        <li>Scored 95% in bachelor's degree research project</li>
+      </ul>
+      <div class="project-tech" style="margin-top: 10px;">
+        <span class="tech-tag">C++ Object Oriented Programming</span>
+        <span class="tech-tag">Digital Signal Processing</span>
+        <span class="tech-tag">Control Systems</span>
+        <span class="tech-tag">Microprocessor Based Systems</span>
+        <span class="tech-tag">VLSI Systems Design</span>
+        <span class="tech-tag">Robotics</span>
+        <span class="tech-tag">FPGA Based Design</span>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS & TOOLS ═══ -->
+<section id="skills" style="background: var(--bg-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <div class="container">
+    <div class="section-label"></div>
+    <div class="section-title">Technical toolkit</div>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <h3>Programming</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> Python</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> C++</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> C</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> C#</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> MATLAB</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Assembly</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Machine Learning and Deep Learning</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> PyTorch</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> TensorFlow / Keras</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Scikit-learn</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Gymnasium (OpenAI Gym successor)</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Stable-Baselines3 & RLib</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Matplotlib</div>
+
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Robotics & Simulation</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> ROS1 / ROS2</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> PyGame</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> MuJoCo</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Gazebo</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> PyBullet</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Unity3D</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Navigation 2 / Nav2</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> Moveit</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> NVIDIA Isaac Sim / Lab</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Computer Vision and Large Language Models</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot proficient"></span> OpenCV</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Open3D</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> MMDetection</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Segment Anything Model (SAM)</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Hugging Face Transformers</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> LangChain</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Robotics Platforms</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> Hiwonder JetHexa</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Hiwonder SpiderPi</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Unitree GO1</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Turtlebot 4</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Unitree G1 Humanoid (Simulation Only)</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> UR5e Manipulator (Simulation Only)</div>
+
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Embedded Systems & Hardware</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> NVIDIA Jetson (Orin / Nano)</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Raspberry Pi</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> ESP32</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Arduino</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> STM32</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> PIC Microcontrollers</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>Data Science & Computing</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> NumPy / Pandas</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> SciPy / SymPy</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> R</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Excel</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> SPSS</div>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>DevOps & Tools</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> LaTeX</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Jupyter / Anaconda</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> VS Code</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Git / GitHub / GitLab</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Linux / Bash</div>
+
+          <div class="skill-item"><span class="skill-dot familiar"></span> FastAPI</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> Streamlit</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> Docker / Kubernetes</div>
+        </div>
+      </div>
+
+
+
+      <div class="skill-group">
+        <h3>Research Competencies</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> Technical Writing & Peer Review</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Experimental Design</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Simulation & Benchmarking</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Statistical Modeling</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Hypothesis Testing</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Reproducible Research</div>
+        </div>
+      </div>
+
+    </div>
+    <div style="display: flex; gap: 1.5rem; margin-top: 2rem; font-size: 12px; color: var(--text-tertiary);">
+      <span><span class="skill-dot expert" style="display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:4px;"></span> Expert</span>
+      <span><span class="skill-dot proficient" style="display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:4px;"></span> Proficient</span>
+      <span><span class="skill-dot familiar" style="display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:4px;"></span> Familiar</span>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ PROJECTS ═══ -->
 <section id="projects" style="background: var(--bg-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
   <div class="container">
-    <div class="section-label">// projects</div>
-    <div class="section-title">Ongoing & recent projects</div>
+    <div class="section-label"></div>
+    <div class="section-title">Ongoing & Recent Projects</div>
     <div class="section-subtitle">
-      From simulation to real hardware — here's what I'm building.
     </div>
     <div class="projects-grid">
       <!-- Project 1 -->
-      <div class="project-card">
+      <div class="project-card" onclick="window.location.href='project-grasping.html'" style="cursor:pointer;">
         <div class="project-thumb">
           <span class="project-status status-progress">In Progress</span>
-          <!-- Placeholder pattern -->
           <svg viewBox="0 0 400 180"><defs><pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#2563EB" stroke-width="0.5"/></pattern></defs><rect width="400" height="180" fill="url(#grid1)"/><circle cx="200" cy="90" r="40" fill="none" stroke="#2563EB" stroke-width="1.5"/><circle cx="200" cy="90" r="20" fill="none" stroke="#2563EB" stroke-width="1"/></svg>
         </div>
         <div class="project-body">
           <h3>Adaptive Grasping with Tactile Feedback</h3>
-          <p>
-            Developing a closed-loop grasping system that uses tactile sensor data 
-            and RL to adapt grip strategies in real-time for novel objects.
-          </p>
+          <p>Developing a closed-loop grasping system that uses tactile sensor data and RL to adapt grip strategies in real-time for novel objects.</p>
           <div class="project-tech">
             <span class="tech-tag">PyTorch</span>
             <span class="tech-tag">ROS 2</span>
@@ -1029,7 +1266,7 @@ footer {
         </div>
       </div>
       <!-- Project 2 -->
-      <div class="project-card">
+      <!-- <div class="project-card">
         <div class="project-thumb">
           <span class="project-status status-progress">In Progress</span>
           <svg viewBox="0 0 400 180"><defs><pattern id="grid2" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1.5" fill="#0D9488"/></pattern></defs><rect width="400" height="180" fill="url(#grid2)"/><path d="M 50 140 Q 120 40 200 90 T 350 50" fill="none" stroke="#0D9488" stroke-width="2"/></svg>
@@ -1047,9 +1284,9 @@ footer {
             <span class="tech-tag">Spot</span>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Project 3 -->
-      <div class="project-card">
+      <!-- <div class="project-card">
         <div class="project-thumb">
           <span class="project-status status-complete">Completed</span>
           <svg viewBox="0 0 400 180"><defs><pattern id="grid3" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 0 12.5 H 25 M 12.5 0 V 25" fill="none" stroke="#7C3AED" stroke-width="0.3"/></pattern></defs><rect width="400" height="180" fill="url(#grid3)"/><rect x="150" y="50" width="100" height="80" rx="5" fill="none" stroke="#7C3AED" stroke-width="1.5"/></svg>
@@ -1067,9 +1304,9 @@ footer {
             <span class="tech-tag">C++</span>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Project 4 -->
-      <div class="project-card">
+      <!-- <div class="project-card">
         <div class="project-thumb">
           <span class="project-status status-complete">Completed</span>
           <svg viewBox="0 0 400 180"><defs><pattern id="grid4" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 20 0 L 40 20 L 20 40 L 0 20 Z" fill="none" stroke="#E85D3A" stroke-width="0.5"/></pattern></defs><rect width="400" height="180" fill="url(#grid4)"/></svg>
@@ -1087,111 +1324,17 @@ footer {
             <span class="tech-tag">Franka Panda</span>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
 
-<!-- ═══ EXPERIENCE & EDUCATION ═══ -->
-<section id="experience">
-  <div class="container">
-    <div class="section-label">// experience & education</div>
-    <div class="section-title">My journey so far</div>
-    <div class="section-subtitle">
-      An academic and professional path driven by curiosity about intelligent machines.
-    </div>
-    <div class="timeline">
-      <div class="timeline-item current">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2023 — Present</div>
-        <div class="timeline-role">Research Assistant / Associate</div>
-        <div class="timeline-place">[Your Lab Name], [University]</div>
-        <div class="timeline-desc">Leading research on sim-to-real transfer for dexterous manipulation. Advised by Prof. [Name].</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">Summer 2023</div>
-        <div class="timeline-role">Research Intern</div>
-        <div class="timeline-place">[Company/Lab — e.g., NVIDIA, Google DeepMind, Toyota Research]</div>
-        <div class="timeline-desc">Worked on scalable RL training pipelines for robotic manipulation in simulation.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2021 — 2023</div>
-        <div class="timeline-role">M.Sc. in Robotics / Computer Science</div>
-        <div class="timeline-place">[University Name]</div>
-        <div class="timeline-desc">Thesis: "[Your Thesis Title]". Focus on RL and robot learning. GPA: X.XX/4.0.</div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-date">2017 — 2021</div>
-        <div class="timeline-role">B.Sc. in [Your Field]</div>
-        <div class="timeline-place">[University Name]</div>
-        <div class="timeline-desc">Graduated with honors. Senior project on autonomous navigation using deep learning.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SKILLS & TOOLS ═══ -->
-<section id="skills" style="background: var(--bg-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
-  <div class="container">
-    <div class="section-label">// skills & tools</div>
-    <div class="section-title">Technical toolkit</div>
-    <div class="section-subtitle">
-      Languages, frameworks, and hardware I work with daily.
-    </div>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <h3>Languages & ML</h3>
-        <div class="skill-items">
-          <div class="skill-item"><span class="skill-dot expert"></span> Python</div>
-          <div class="skill-item"><span class="skill-dot expert"></span> PyTorch</div>
-          <div class="skill-item"><span class="skill-dot expert"></span> C++</div>
-          <div class="skill-item"><span class="skill-dot proficient"></span> TensorFlow</div>
-          <div class="skill-item"><span class="skill-dot proficient"></span> JAX</div>
-          <div class="skill-item"><span class="skill-dot familiar"></span> MATLAB</div>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>Robotics & Simulation</h3>
-        <div class="skill-items">
-          <div class="skill-item"><span class="skill-dot expert"></span> ROS / ROS 2</div>
-          <div class="skill-item"><span class="skill-dot expert"></span> MuJoCo</div>
-          <div class="skill-item"><span class="skill-dot expert"></span> Isaac Gym / Isaac Sim</div>
-          <div class="skill-item"><span class="skill-dot proficient"></span> Gazebo</div>
-          <div class="skill-item"><span class="skill-dot proficient"></span> PyBullet</div>
-          <div class="skill-item"><span class="skill-dot familiar"></span> URDF / SDF</div>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>Hardware & Platforms</h3>
-        <div class="skill-items">
-          <div class="skill-item"><span class="skill-dot expert"></span> UR5 / UR5e</div>
-          <div class="skill-item"><span class="skill-dot proficient"></span> Franka Panda</div>
-          <div class="skill-item"><span class="skill-dot proficient"></span> Unitree Go1</div>
-          <div class="skill-item"><span class="skill-dot proficient"></span> NVIDIA Jetson</div>
-          <div class="skill-item"><span class="skill-dot familiar"></span> Intel RealSense</div>
-          <div class="skill-item"><span class="skill-dot familiar"></span> Robotiq Grippers</div>
-        </div>
-      </div>
-    </div>
-    <div style="display: flex; gap: 1.5rem; margin-top: 2rem; font-size: 12px; color: var(--text-tertiary);">
-      <span><span class="skill-dot expert" style="display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:4px;"></span> Expert</span>
-      <span><span class="skill-dot proficient" style="display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:4px;"></span> Proficient</span>
-      <span><span class="skill-dot familiar" style="display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:4px;"></span> Familiar</span>
-    </div>
-  </div>
-</section>
 
 <!-- ═══ TEACHING ═══ -->
 <section id="teaching">
   <div class="container">
-    <div class="section-label">// teaching</div>
+    <div class="section-label"></div>
     <div class="section-title">Teaching experience</div>
-    <div class="section-subtitle">
-      Mentoring the next generation of roboticists and AI researchers.
-    </div>
     <div class="teaching-list">
       <div class="teaching-item">
         <div class="teaching-sem">Fall 2024</div>
@@ -1296,7 +1439,9 @@ footer {
       Thoughts on research, tutorials, and reflections on the journey.
     </div>
     <div class="blog-grid">
-      <div class="blog-card">
+      <!-- <div class="blog-card"> -->
+      <!-- <div class="blog-card"> -->
+      <div class="blog-card" onclick="window.location.href='blog-sim-to-real.html'" style="cursor:pointer;">
         <div class="blog-stripe s1"></div>
         <div class="blog-body">
           <div class="blog-date">Jan 2025</div>
