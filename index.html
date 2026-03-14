@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. [Your Name] — AI & Robotics Researcher</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F8F9FC;
+  --bg-white: #FFFFFF;
+  --bg-surface: #EFF2F8;
+  --text-primary: #1A1F36;
+  --text-secondary: #4E5A7E;
+  --text-tertiary: #8893B0;
+  --accent: #2563EB;
+  --accent-light: #DBEAFE;
+  --accent-lighter: #EFF6FF;
+  --accent-dark: #1D4ED8;
+  --border: #E2E6F0;
+  --border-light: #EDF0F7;
+  --teal: #0D9488;
+  --teal-light: #CCFBF1;
+  --coral: #E85D3A;
+  --coral-light: #FEF2F0;
+  --violet: #7C3AED;
+  --violet-light: #EDE9FE;
+  --shadow-sm: 0 1px 3px rgba(26,31,54,0.06);
+  --shadow-md: 0 4px 16px rgba(26,31,54,0.08);
+  --shadow-lg: 0 8px 30px rgba(26,31,54,0.10);
+  --radius: 12px;
+  --radius-lg: 18px;
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* ── Navigation ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(248,249,252,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: var(--shadow-sm); }
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 60px;
+}
+.nav-logo {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 500;
+  color: var(--accent); text-decoration: none; letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--text-tertiary); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; color: var(--text-secondary);
+  text-decoration: none; transition: color 0.2s; letter-spacing: 0.02em;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* ── Shared ── */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+section { padding: 5rem 0; }
+
+.section-label {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--font-display); font-size: 2.2rem; font-weight: 400;
+  color: var(--text-primary); margin-bottom: 1rem; line-height: 1.2;
+}
+.section-subtitle {
+  color: var(--text-secondary); font-size: 15px; max-width: 560px;
+  line-height: 1.7; margin-bottom: 2.5rem;
+}
+
+/* ── Hero ── */
+.hero {
+  padding: 10rem 0 6rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -200px; right: -100px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -150px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(13,148,136,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center; position: relative;
+}
+.hero-text h1 {
+  font-family: var(--font-display); font-size: 3.5rem;
+  line-height: 1.1; margin-bottom: 0.75rem; font-weight: 400;
+}
+.hero-text h1 em {
+  font-style: italic; color: var(--accent);
+}
+.hero-text .tagline {
+  font-size: 17px; color: var(--text-secondary);
+  margin-bottom: 2rem; max-width: 440px; line-height: 1.7;
+}
+.hero-links {
+  display: flex; gap: 0.75rem; flex-wrap: wrap;
+}
+.hero-links a {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500; padding: 8px 18px;
+  border-radius: 8px; text-decoration: none; transition: all 0.2s;
+}
+.btn-primary {
+  background: var(--accent); color: #fff; border: 1px solid var(--accent);
+}
+.btn-primary:hover { background: var(--accent-dark); }
+.btn-outline {
+  background: transparent; color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Hero visual */
+.hero-visual {
+  position: relative; display: flex;
+  justify-content: center; align-items: center;
+}
+.hero-photo {
+  width: 280px; height: 340px; border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--text-tertiary);
+  position: relative; overflow: hidden;
+}
+.hero-badge {
+  position: absolute; bottom: -12px; right: -12px;
+  background: var(--bg-white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 10px 16px;
+  box-shadow: var(--shadow-md);
+}
+.hero-badge .badge-label {
+  font-size: 10px; font-weight: 500; color: var(--text-tertiary);
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.hero-badge .badge-value {
+  font-family: var(--font-mono); font-size: 14px;
+  font-weight: 500; color: var(--accent); margin-top: 2px;
+}
+.float-card {
+  position: absolute; background: var(--bg-white);
+  border: 1px solid var(--border-light); border-radius: var(--radius);
+  padding: 10px 14px; box-shadow: var(--shadow-md);
+  animation: float 6s ease-in-out infinite;
+}
+.float-card.fc1 { top: 10px; left: -30px; animation-delay: 0s; }
+.float-card.fc2 { top: 60px; right: -40px; animation-delay: -2s; }
+.float-card .fc-icon { font-size: 18px; margin-bottom: 4px; }
+.float-card .fc-text {
+  font-size: 11px; font-weight: 500; color: var(--text-secondary);
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ── About ── */
+.about-content {
+  display: grid; grid-template-columns: 2fr 1fr;
+  gap: 3rem; align-items: start;
+}
+.about-text p { color: var(--text-secondary); margin-bottom: 1rem; }
+.about-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+}
+.stat-card {
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius); padding: 1.25rem; text-align: center;
+}
+.stat-card .stat-num {
+  font-family: var(--font-display); font-size: 2rem; color: var(--accent);
+}
+.stat-card .stat-label {
+  font-size: 12px; color: var(--text-tertiary); margin-top: 4px;
+}
+
+/* ── Research Interests ── */
+.interests-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+}
+.interest-card {
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius); padding: 1.75rem;
+  transition: all 0.25s; cursor: default;
+}
+.interest-card:hover {
+  border-color: var(--accent); transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.interest-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem; font-size: 18px;
+}
+.interest-icon.blue { background: var(--accent-lighter); color: var(--accent); }
+.interest-icon.teal { background: var(--teal-light); color: var(--teal); }
+.interest-icon.coral { background: var(--coral-light); color: var(--coral); }
+.interest-icon.violet { background: var(--violet-light); color: var(--violet); }
+.interest-card h3 {
+  font-size: 15px; font-weight: 600; margin-bottom: 0.5rem;
+}
+.interest-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* ── Publications ── */
+.pub-filters {
+  display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;
+}
+.pub-filter {
+  font-size: 12px; font-weight: 500; padding: 6px 16px;
+  border-radius: 20px; border: 1px solid var(--border);
+  background: transparent; color: var(--text-secondary);
+  cursor: pointer; transition: all 0.2s;
+}
+.pub-filter:hover, .pub-filter.active {
+  background: var(--accent); color: #fff; border-color: var(--accent);
+}
+.pub-list { display: flex; flex-direction: column; gap: 1rem; }
+.pub-item {
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius); padding: 1.5rem 1.75rem;
+  transition: border-color 0.2s;
+}
+.pub-item:hover { border-color: var(--accent); }
+.pub-year {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  color: var(--accent); margin-bottom: 6px;
+}
+.pub-title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.pub-authors { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+.pub-authors strong { color: var(--accent); font-weight: 600; }
+.pub-venue {
+  font-size: 12px; color: var(--text-tertiary); font-style: italic;
+}
+.pub-tags { display: flex; gap: 0.5rem; margin-top: 10px; flex-wrap: wrap; }
+.pub-tag {
+  font-size: 11px; padding: 3px 10px; border-radius: 20px;
+  font-weight: 500;
+}
+.pub-tag.pdf { background: var(--coral-light); color: var(--coral); }
+.pub-tag.code { background: var(--teal-light); color: var(--teal); }
+.pub-tag.award { background: #FEF3C7; color: #B45309; }
+
+/* ── Projects ── */
+.projects-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+}
+.project-card {
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg); overflow: hidden;
+  transition: all 0.25s;
+}
+.project-card:hover {
+  border-color: var(--accent); box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.project-thumb {
+  height: 180px; background: var(--bg-surface);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--text-tertiary);
+  border-bottom: 1px solid var(--border-light);
+  position: relative; overflow: hidden;
+}
+.project-thumb svg {
+  width: 100%; height: 100%; opacity: 0.3;
+}
+.project-status {
+  position: absolute; top: 12px; right: 12px;
+  font-size: 11px; font-weight: 600; padding: 4px 10px;
+  border-radius: 20px;
+}
+.status-progress { background: #DBEAFE; color: #2563EB; }
+.status-complete { background: #D1FAE5; color: #059669; }
+.project-body { padding: 1.5rem; }
+.project-body h3 { font-size: 16px; font-weight: 600; margin-bottom: 0.5rem; }
+.project-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem; }
+.project-tech { display: flex; gap: 6px; flex-wrap: wrap; }
+.tech-tag {
+  font-family: var(--font-mono); font-size: 11px;
+  padding: 3px 8px; border-radius: 6px;
+  background: var(--bg-surface); color: var(--text-secondary);
+}
+
+/* ── Timeline ── */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px;
+  width: 2px; background: var(--border);
+}
+.timeline-item {
+  position: relative; padding-bottom: 2.5rem; padding-left: 2rem;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-dot {
+  position: absolute; left: -2rem; top: 6px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg-white); border: 2.5px solid var(--accent);
+}
+.timeline-item.current .timeline-dot {
+  background: var(--accent); box-shadow: 0 0 0 4px var(--accent-light);
+}
+.timeline-date {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-tertiary); margin-bottom: 4px;
+}
+.timeline-role { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+.timeline-place { font-size: 13px; color: var(--accent); margin-bottom: 4px; }
+.timeline-desc { font-size: 13px; color: var(--text-secondary); }
+
+/* ── Skills ── */
+.skills-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+}
+.skill-group h3 {
+  font-size: 13px; font-weight: 600; color: var(--text-tertiary);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 1rem; padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+.skill-items { display: flex; flex-direction: column; gap: 0.75rem; }
+.skill-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: var(--text-primary);
+}
+.skill-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.skill-dot.expert { background: var(--accent); }
+.skill-dot.proficient { background: var(--teal); }
+.skill-dot.familiar { background: var(--text-tertiary); }
+.skill-bar-wrapper {
+  flex: 1; height: 4px; background: var(--bg-surface);
+  border-radius: 2px; overflow: hidden;
+}
+.skill-bar {
+  height: 100%; border-radius: 2px;
+  transition: width 1s ease;
+}
+
+/* ── Teaching ── */
+.teaching-list { display: flex; flex-direction: column; gap: 1rem; }
+.teaching-item {
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius); padding: 1.25rem 1.5rem;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem;
+  align-items: center;
+}
+.teaching-sem {
+  font-family: var(--font-mono); font-size: 12px;
+  color: var(--accent); font-weight: 500; white-space: nowrap;
+}
+.teaching-info h4 { font-size: 14px; font-weight: 600; }
+.teaching-info p { font-size: 13px; color: var(--text-secondary); }
+.teaching-role {
+  font-size: 11px; font-weight: 600; padding: 4px 12px;
+  border-radius: 20px; background: var(--accent-lighter);
+  color: var(--accent); white-space: nowrap;
+}
+
+/* ── Awards ── */
+.awards-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+}
+.award-item {
+  display: flex; gap: 1rem; align-items: start;
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius); padding: 1.25rem;
+}
+.award-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.award-icon.talk { background: var(--accent-lighter); }
+.award-icon.prize { background: #FEF3C7; }
+.award-icon.service { background: var(--violet-light); }
+.award-info h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.award-info p { font-size: 12px; color: var(--text-secondary); }
+.award-info .award-year {
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary);
+}
+
+/* ── Blog ── */
+.blog-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.blog-card {
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius); overflow: hidden;
+  transition: all 0.25s; cursor: pointer;
+}
+.blog-card:hover {
+  border-color: var(--accent); transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.blog-stripe {
+  height: 4px;
+}
+.blog-stripe.s1 { background: var(--accent); }
+.blog-stripe.s2 { background: var(--teal); }
+.blog-stripe.s3 { background: var(--coral); }
+.blog-body { padding: 1.5rem; }
+.blog-date {
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+.blog-body h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+.blog-body p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.blog-read {
+  font-size: 12px; font-weight: 500; color: var(--accent);
+  margin-top: 10px; display: inline-block;
+}
+
+/* ── Contact ── */
+.contact-section {
+  background: var(--bg-white); border-top: 1px solid var(--border-light);
+}
+.contact-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.contact-text h2 {
+  font-family: var(--font-display); font-size: 2.2rem;
+  font-weight: 400; margin-bottom: 1rem;
+}
+.contact-text p {
+  color: var(--text-secondary); font-size: 15px; margin-bottom: 2rem;
+}
+.contact-links {
+  display: flex; flex-direction: column; gap: 0.75rem;
+}
+.contact-link {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: var(--text-secondary);
+  text-decoration: none; transition: color 0.2s;
+}
+.contact-link:hover { color: var(--accent); }
+.contact-link svg { width: 18px; height: 18px; color: var(--accent); }
+.contact-cta {
+  background: var(--accent-lighter); border-radius: var(--radius);
+  padding: 2rem; text-align: center;
+}
+.contact-cta p {
+  font-size: 14px; color: var(--text-secondary); margin-bottom: 1rem;
+}
+.contact-cta .btn-primary { font-size: 14px; }
+
+/* ── Footer ── */
+footer {
+  text-align: center; padding: 2.5rem 0;
+  font-size: 12px; color: var(--text-tertiary);
+  border-top: 1px solid var(--border-light);
+}
+
+/* ── Circuit Pattern Decoration ── */
+.circuit-decoration {
+  position: absolute; pointer-events: none; opacity: 0.04;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-text h1 { font-size: 2.4rem; }
+  .hero-text .tagline { margin: 0 auto 2rem; }
+  .hero-links { justify-content: center; }
+  .hero-visual { display: none; }
+  .about-content { grid-template-columns: 1fr; }
+  .interests-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .awards-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .teaching-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  .nav-links { display: none; }
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in {
+  opacity: 0; animation: fadeUp 0.6s ease forwards;
+}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">[your.name]<span>@robotics</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text animate-in">
+        <h1>Teaching robots<br>to <em>learn</em></h1>
+        <p class="tagline">
+          AI researcher specializing in robot learning, reinforcement learning,
+          and sim-to-real transfer. Building intelligent systems that adapt,
+          reason, and interact with the physical world.
+        </p>
+        <div class="hero-links">
+          <a href="#" class="btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+            Curriculum Vitae
+          </a>
+          <a href="#" class="btn-outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+          </a>
+          <a href="#" class="btn-outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Google Scholar
+          </a>
+          <a href="#" class="btn-outline">LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-visual animate-in delay-2">
+        <div class="hero-photo">
+          Your Photo Here
+          <div class="hero-badge">
+            <div class="badge-label">Seeking</div>
+            <div class="badge-value">PhD / Postdoc</div>
+          </div>
+        </div>
+        <div class="float-card fc1">
+          <div class="fc-icon">&#x1F916;</div>
+          <div class="fc-text">Robot Learning</div>
+        </div>
+        <div class="float-card fc2">
+          <div class="fc-icon">&#x1F9E0;</div>
+          <div class="fc-text">Reinforcement Learning</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">// about me</div>
+    <div class="section-title">The researcher behind the algorithms</div>
+    <div class="about-content">
+      <div class="about-text">
+        <p>
+          I am a [your current role] at [your institution], working at the intersection
+          of robotics and machine learning. My research focuses on enabling robots to
+          acquire complex manipulation and locomotion skills through learning, with an
+          emphasis on sample-efficient reinforcement learning and sim-to-real transfer.
+        </p>
+        <p>
+          My journey into robotics began during [your origin story — e.g., an undergraduate
+          project, a personal fascination with autonomous systems, or an internship].
+          Since then, I have been driven by the question: <em>How can we build robots that
+          learn as naturally as humans do?</em>
+        </p>
+        <p>
+          Previously, I completed my [degree] in [field] at [university], where I worked
+          with [advisor name] on [brief research description]. I have also gained
+          industry experience at [company/lab], working on [project description].
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-num">12+</div>
+          <div class="stat-label">Publications</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">350+</div>
+          <div class="stat-label">Citations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Awards</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ RESEARCH INTERESTS ═══ -->
+<section id="research" style="background: var(--bg-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <div class="container">
+    <div class="section-label">// research interests</div>
+    <div class="section-title">Bridging learning and physical intelligence</div>
+    <div class="section-subtitle">
+      My research spans the full pipeline from algorithmic foundations to real-world deployment on robotic platforms.
+    </div>
+    <div class="interests-grid">
+      <div class="interest-card">
+        <div class="interest-icon blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        </div>
+        <h3>Reinforcement Learning</h3>
+        <p>Developing sample-efficient RL algorithms for continuous control, with focus on policy optimization and reward shaping for robotic tasks.</p>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon teal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Sim-to-Real Transfer</h3>
+        <p>Bridging the reality gap through domain randomization, system identification, and adaptive transfer techniques for robust real-world deployment.</p>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon coral">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+        </div>
+        <h3>Robot Manipulation</h3>
+        <p>Teaching robots dexterous manipulation skills — grasping, assembly, and tool use — using learning-based approaches combined with tactile sensing.</p>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon violet">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 14h3"/><path d="M1 9h3"/><path d="M1 14h3"/></svg>
+        </div>
+        <h3>Imitation Learning</h3>
+        <p>Learning from demonstrations using behavioral cloning, inverse RL, and human-in-the-loop feedback to accelerate robot skill acquisition.</p>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Foundation Models for Robotics</h3>
+        <p>Leveraging large pre-trained models (vision-language, diffusion) as priors for generalizable robotic perception, planning, and control.</p>
+      </div>
+      <div class="interest-card">
+        <div class="interest-icon teal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Multi-Agent Systems</h3>
+        <p>Coordination and collaboration among multiple robots through decentralized learning, communication protocols, and emergent cooperative behavior.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PUBLICATIONS ═══ -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">// publications</div>
+    <div class="section-title">Selected publications</div>
+    <div class="section-subtitle">
+      A curated selection of my research contributions. Full list available on Google Scholar.
+    </div>
+    <div class="pub-filters">
+      <button class="pub-filter active" onclick="filterPubs('all')">All</button>
+      <button class="pub-filter" onclick="filterPubs('2025')">2025</button>
+      <button class="pub-filter" onclick="filterPubs('2024')">2024</button>
+      <button class="pub-filter" onclick="filterPubs('2023')">2023</button>
+      <button class="pub-filter" onclick="filterPubs('journal')">Journals</button>
+      <button class="pub-filter" onclick="filterPubs('conference')">Conferences</button>
+    </div>
+    <div class="pub-list">
+      <!-- Pub 1 -->
+      <div class="pub-item" data-year="2025" data-type="conference">
+        <div class="pub-year">2025 &middot; Conference</div>
+        <div class="pub-title">Adaptive Sim-to-Real Transfer for Dexterous Manipulation via Meta-Reinforcement Learning</div>
+        <div class="pub-authors"><strong>[Your Name]</strong>, Collaborator A, Collaborator B, Advisor Name</div>
+        <div class="pub-venue">IEEE International Conference on Robotics and Automation (ICRA 2025)</div>
+        <div class="pub-tags">
+          <span class="pub-tag pdf">PDF</span>
+          <span class="pub-tag code">Code</span>
+          <span class="pub-tag award">Best Paper Finalist</span>
+        </div>
+      </div>
+      <!-- Pub 2 -->
+      <div class="pub-item" data-year="2024" data-type="journal">
+        <div class="pub-year">2024 &middot; Journal</div>
+        <div class="pub-title">Sample-Efficient Policy Optimization with Learned World Models for Contact-Rich Manipulation</div>
+        <div class="pub-authors"><strong>[Your Name]</strong>, Collaborator C, Advisor Name</div>
+        <div class="pub-venue">IEEE Transactions on Robotics (T-RO)</div>
+        <div class="pub-tags">
+          <span class="pub-tag pdf">PDF</span>
+          <span class="pub-tag code">Code</span>
+        </div>
+      </div>
+      <!-- Pub 3 -->
+      <div class="pub-item" data-year="2024" data-type="conference">
+        <div class="pub-year">2024 &middot; Conference</div>
+        <div class="pub-title">Language-Conditioned Reward Shaping for Generalizable Robot Skill Learning</div>
+        <div class="pub-authors">Collaborator D, <strong>[Your Name]</strong>, Collaborator E, Advisor Name</div>
+        <div class="pub-venue">Conference on Robot Learning (CoRL 2024)</div>
+        <div class="pub-tags">
+          <span class="pub-tag pdf">PDF</span>
+        </div>
+      </div>
+      <!-- Pub 4 -->
+      <div class="pub-item" data-year="2023" data-type="conference">
+        <div class="pub-year">2023 &middot; Conference</div>
+        <div class="pub-title">Robust Locomotion Policies via Curriculum-Driven Domain Randomization</div>
+        <div class="pub-authors"><strong>[Your Name]</strong>, Collaborator F, Advisor Name</div>
+        <div class="pub-venue">Robotics: Science and Systems (RSS 2023)</div>
+        <div class="pub-tags">
+          <span class="pub-tag pdf">PDF</span>
+          <span class="pub-tag code">Code</span>
+          <span class="pub-tag award">Oral Presentation</span>
+        </div>
+      </div>
+      <!-- Pub 5 -->
+      <div class="pub-item" data-year="2023" data-type="journal">
+        <div class="pub-year">2023 &middot; Journal</div>
+        <div class="pub-title">Tactile-Guided Manipulation: Integrating Learned Contact Models with Model-Predictive Control</div>
+        <div class="pub-authors">Collaborator G, <strong>[Your Name]</strong>, Advisor Name</div>
+        <div class="pub-venue">The International Journal of Robotics Research (IJRR)</div>
+        <div class="pub-tags">
+          <span class="pub-tag pdf">PDF</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects" style="background: var(--bg-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <div class="container">
+    <div class="section-label">// projects</div>
+    <div class="section-title">Ongoing & recent projects</div>
+    <div class="section-subtitle">
+      From simulation to real hardware — here's what I'm building.
+    </div>
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <span class="project-status status-progress">In Progress</span>
+          <!-- Placeholder pattern -->
+          <svg viewBox="0 0 400 180"><defs><pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#2563EB" stroke-width="0.5"/></pattern></defs><rect width="400" height="180" fill="url(#grid1)"/><circle cx="200" cy="90" r="40" fill="none" stroke="#2563EB" stroke-width="1.5"/><circle cx="200" cy="90" r="20" fill="none" stroke="#2563EB" stroke-width="1"/></svg>
+        </div>
+        <div class="project-body">
+          <h3>Adaptive Grasping with Tactile Feedback</h3>
+          <p>
+            Developing a closed-loop grasping system that uses tactile sensor data 
+            and RL to adapt grip strategies in real-time for novel objects.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">PyTorch</span>
+            <span class="tech-tag">ROS 2</span>
+            <span class="tech-tag">MuJoCo</span>
+            <span class="tech-tag">UR5e</span>
+          </div>
+        </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <span class="project-status status-progress">In Progress</span>
+          <svg viewBox="0 0 400 180"><defs><pattern id="grid2" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="1.5" fill="#0D9488"/></pattern></defs><rect width="400" height="180" fill="url(#grid2)"/><path d="M 50 140 Q 120 40 200 90 T 350 50" fill="none" stroke="#0D9488" stroke-width="2"/></svg>
+        </div>
+        <div class="project-body">
+          <h3>LLM-Guided Task Planning for Mobile Manipulation</h3>
+          <p>
+            Using large language models to decompose high-level instructions 
+            into executable robot subtasks with learned low-level controllers.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">LangChain</span>
+            <span class="tech-tag">Isaac Sim</span>
+            <span class="tech-tag">Spot</span>
+          </div>
+        </div>
+      </div>
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <span class="project-status status-complete">Completed</span>
+          <svg viewBox="0 0 400 180"><defs><pattern id="grid3" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 0 12.5 H 25 M 12.5 0 V 25" fill="none" stroke="#7C3AED" stroke-width="0.3"/></pattern></defs><rect width="400" height="180" fill="url(#grid3)"/><rect x="150" y="50" width="100" height="80" rx="5" fill="none" stroke="#7C3AED" stroke-width="1.5"/></svg>
+        </div>
+        <div class="project-body">
+          <h3>Sim-to-Real Quadruped Locomotion</h3>
+          <p>
+            Trained agile locomotion policies in simulation using PPO with 
+            domain randomization, deployed zero-shot on a real Unitree Go1.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">PPO</span>
+            <span class="tech-tag">IsaacGym</span>
+            <span class="tech-tag">Unitree Go1</span>
+            <span class="tech-tag">C++</span>
+          </div>
+        </div>
+      </div>
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div class="project-thumb">
+          <span class="project-status status-complete">Completed</span>
+          <svg viewBox="0 0 400 180"><defs><pattern id="grid4" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 20 0 L 40 20 L 20 40 L 0 20 Z" fill="none" stroke="#E85D3A" stroke-width="0.5"/></pattern></defs><rect width="400" height="180" fill="url(#grid4)"/></svg>
+        </div>
+        <div class="project-body">
+          <h3>Multi-Robot Collaborative Assembly</h3>
+          <p>
+            Designed a multi-agent RL framework enabling two robot arms to 
+            cooperatively assemble structures through learned communication.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">MAPPO</span>
+            <span class="tech-tag">Gazebo</span>
+            <span class="tech-tag">ROS</span>
+            <span class="tech-tag">Franka Panda</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE & EDUCATION ═══ -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">// experience & education</div>
+    <div class="section-title">My journey so far</div>
+    <div class="section-subtitle">
+      An academic and professional path driven by curiosity about intelligent machines.
+    </div>
+    <div class="timeline">
+      <div class="timeline-item current">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2023 — Present</div>
+        <div class="timeline-role">Research Assistant / Associate</div>
+        <div class="timeline-place">[Your Lab Name], [University]</div>
+        <div class="timeline-desc">Leading research on sim-to-real transfer for dexterous manipulation. Advised by Prof. [Name].</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Summer 2023</div>
+        <div class="timeline-role">Research Intern</div>
+        <div class="timeline-place">[Company/Lab — e.g., NVIDIA, Google DeepMind, Toyota Research]</div>
+        <div class="timeline-desc">Worked on scalable RL training pipelines for robotic manipulation in simulation.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2021 — 2023</div>
+        <div class="timeline-role">M.Sc. in Robotics / Computer Science</div>
+        <div class="timeline-place">[University Name]</div>
+        <div class="timeline-desc">Thesis: "[Your Thesis Title]". Focus on RL and robot learning. GPA: X.XX/4.0.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">2017 — 2021</div>
+        <div class="timeline-role">B.Sc. in [Your Field]</div>
+        <div class="timeline-place">[University Name]</div>
+        <div class="timeline-desc">Graduated with honors. Senior project on autonomous navigation using deep learning.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS & TOOLS ═══ -->
+<section id="skills" style="background: var(--bg-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <div class="container">
+    <div class="section-label">// skills & tools</div>
+    <div class="section-title">Technical toolkit</div>
+    <div class="section-subtitle">
+      Languages, frameworks, and hardware I work with daily.
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Languages & ML</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> Python</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> PyTorch</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> C++</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> TensorFlow</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> JAX</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> MATLAB</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Robotics & Simulation</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> ROS / ROS 2</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> MuJoCo</div>
+          <div class="skill-item"><span class="skill-dot expert"></span> Isaac Gym / Isaac Sim</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Gazebo</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> PyBullet</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> URDF / SDF</div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Hardware & Platforms</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot expert"></span> UR5 / UR5e</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Franka Panda</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> Unitree Go1</div>
+          <div class="skill-item"><span class="skill-dot proficient"></span> NVIDIA Jetson</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> Intel RealSense</div>
+          <div class="skill-item"><span class="skill-dot familiar"></span> Robotiq Grippers</div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 1.5rem; margin-top: 2rem; font-size: 12px; color: var(--text-tertiary);">
+      <span><span class="skill-dot expert" style="display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:4px;"></span> Expert</span>
+      <span><span class="skill-dot proficient" style="display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:4px;"></span> Proficient</span>
+      <span><span class="skill-dot familiar" style="display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:middle;margin-right:4px;"></span> Familiar</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TEACHING ═══ -->
+<section id="teaching">
+  <div class="container">
+    <div class="section-label">// teaching</div>
+    <div class="section-title">Teaching experience</div>
+    <div class="section-subtitle">
+      Mentoring the next generation of roboticists and AI researchers.
+    </div>
+    <div class="teaching-list">
+      <div class="teaching-item">
+        <div class="teaching-sem">Fall 2024</div>
+        <div class="teaching-info">
+          <h4>CS XXX: Introduction to Robotics</h4>
+          <p>Led weekly recitations, designed programming assignments in ROS, held office hours for 120+ students.</p>
+        </div>
+        <div class="teaching-role">Teaching Assistant</div>
+      </div>
+      <div class="teaching-item">
+        <div class="teaching-sem">Spring 2024</div>
+        <div class="teaching-info">
+          <h4>CS XXX: Deep Reinforcement Learning</h4>
+          <p>Co-developed course materials on policy gradient methods. Mentored student project teams.</p>
+        </div>
+        <div class="teaching-role">Teaching Assistant</div>
+      </div>
+      <div class="teaching-item">
+        <div class="teaching-sem">Fall 2023</div>
+        <div class="teaching-info">
+          <h4>CS XXX: Machine Learning Foundations</h4>
+          <p>Graded assignments, held review sessions, provided one-on-one tutoring for graduate students.</p>
+        </div>
+        <div class="teaching-role">Grader / Tutor</div>
+      </div>
+      <div class="teaching-item">
+        <div class="teaching-sem">2022 — 2023</div>
+        <div class="teaching-info">
+          <h4>Undergraduate Research Mentorship</h4>
+          <p>Supervised 3 undergraduate students on semester-long research projects in robot learning.</p>
+        </div>
+        <div class="teaching-role">Mentor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TALKS, AWARDS & SERVICE ═══ -->
+<section id="awards" style="background: var(--bg-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <div class="container">
+    <div class="section-label">// talks, awards & service</div>
+    <div class="section-title">Recognition & engagement</div>
+    <div class="awards-grid">
+      <div class="award-item">
+        <div class="award-icon prize">&#x1F3C6;</div>
+        <div class="award-info">
+          <h4>Best Paper Finalist — ICRA 2025</h4>
+          <p>For work on meta-RL for dexterous manipulation sim-to-real transfer.</p>
+          <div class="award-year">2025</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon talk">&#x1F399;</div>
+        <div class="award-info">
+          <h4>Invited Talk — [Lab/Workshop Name]</h4>
+          <p>"Scaling Robot Learning: From Simulation to the Real World."</p>
+          <div class="award-year">2024</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon prize">&#x1F3C6;</div>
+        <div class="award-info">
+          <h4>[Fellowship/Scholarship Name]</h4>
+          <p>Awarded for outstanding research in AI and robotics.</p>
+          <div class="award-year">2023</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon service">&#x1F4DD;</div>
+        <div class="award-info">
+          <h4>Reviewer — ICRA, CoRL, RSS, RA-L</h4>
+          <p>Regular reviewer for top robotics and machine learning venues.</p>
+          <div class="award-year">2023 — Present</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon talk">&#x1F399;</div>
+        <div class="award-info">
+          <h4>Oral Presentation — RSS 2023</h4>
+          <p>Presented work on curriculum-driven domain randomization for locomotion.</p>
+          <div class="award-year">2023</div>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon service">&#x1F4DD;</div>
+        <div class="award-info">
+          <h4>Workshop Organizer — [Workshop Name]</h4>
+          <p>Co-organized workshop on sim-to-real at [Conference].</p>
+          <div class="award-year">2024</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOG ═══ -->
+<section id="blog">
+  <div class="container">
+    <div class="section-label">// research notes</div>
+    <div class="section-title">From the lab notebook</div>
+    <div class="section-subtitle">
+      Thoughts on research, tutorials, and reflections on the journey.
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <div class="blog-stripe s1"></div>
+        <div class="blog-body">
+          <div class="blog-date">Jan 2025</div>
+          <h3>Why Sim-to-Real is Still Hard (And What We Can Do About It)</h3>
+          <p>A deep dive into the reality gap and emerging techniques for robust transfer.</p>
+          <span class="blog-read">Read more &rarr;</span>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-stripe s2"></div>
+        <div class="blog-body">
+          <div class="blog-date">Nov 2024</div>
+          <h3>A Practical Guide to Training RL Agents in MuJoCo</h3>
+          <p>Step-by-step walkthrough of setting up environments, reward functions, and training loops.</p>
+          <span class="blog-read">Read more &rarr;</span>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-stripe s3"></div>
+        <div class="blog-body">
+          <div class="blog-date">Aug 2024</div>
+          <h3>Reflections on My First Conference Paper Acceptance</h3>
+          <p>Lessons learned, mistakes made, and advice for early-career researchers.</p>
+          <span class="blog-read">Read more &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="contact-section">
+  <div class="container" style="padding-top: 5rem; padding-bottom: 5rem;">
+    <div class="contact-inner">
+      <div class="contact-text">
+        <div class="section-label">// get in touch</div>
+        <h2>Let's build something <em style="font-family:var(--font-display);color:var(--accent);">intelligent</em> together</h2>
+        <p>
+          I'm actively seeking PhD, postdoc, and research positions in robot learning and AI.
+          If you're working on exciting problems at the intersection of learning and robotics,
+          I'd love to hear from you.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:your.email@university.edu" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            your.email@university.edu
+          </a>
+          <a href="#" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            github.com/your-username
+          </a>
+          <a href="#" class="contact-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn Profile
+          </a>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <p style="font-size: 18px; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem;">Open to opportunities</p>
+        <p>PhD &middot; Postdoc &middot; Research Associate</p>
+        <a href="mailto:your.email@university.edu" class="btn-primary" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; margin-top: 0.5rem;">
+          Send me an email
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="container">
+    &copy; 2025 [Your Name]. Built with care for the research community.
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+// Navbar scroll effect
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Publication filter
+function filterPubs(filter) {
+  document.querySelectorAll('.pub-filter').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  document.querySelectorAll('.pub-item').forEach(item => {
+    if (filter === 'all') {
+      item.style.display = 'block';
+    } else if (filter === 'journal' || filter === 'conference') {
+      item.style.display = item.dataset.type === filter ? 'block' : 'none';
+    } else {
+      item.style.display = item.dataset.year === filter ? 'block' : 'none';
+    }
+  });
+}
+
+// Smooth reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section .container').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
