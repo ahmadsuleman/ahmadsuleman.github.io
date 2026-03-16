@@ -1,0 +1,66 @@
+=================================================================
+Task 2 — Multimodal CXR Classification: Abnormal vs Normal
+=================================================================
+
+Dataset: 50 cases  |  Normal: 16  Abnormal: 34
+
+--- Simple Baselines (sklearn) ---
+Condition                      Model                AUC      F1
+Image only                     LogisticReg       0.2607  0.5193
+Gaze only                      LogisticReg       0.5440  0.6469
+Speech only                    RandomForest      0.9631  0.8872
+Image + Gaze                   LogisticReg       0.2940  0.5577
+Image + Speech                 RandomForest      0.9048  0.8719
+Gaze + Speech                  LogisticReg       0.9500  0.9055
+Image + Gaze + Speech          LogisticReg       0.8500  0.8597
+
+--- Cross-Attention Fusion Model ---
+Condition                          AUC      ±      F1   Bal.Acc    Sens    Spec
+Image only                      0.4651  ±0.147  0.4815    0.4724  0.3824  0.5625
+Gaze only                       0.6085  ±0.083  0.6562    0.5276  0.6176  0.4375
+Speech only                     0.5974  ±0.130  0.6250    0.4816  0.5882  0.3750
+Image + Gaze                    0.5533  ±0.187  0.5455    0.5331  0.4412  0.6250
+Image + Speech                  0.5460  ±0.139  0.3182    0.5092  0.2059  0.8125
+Gaze + Speech                   0.6526  ±0.068  0.5200    0.5974  0.3824  0.8125
+Image + Gaze + Speech           0.6636  ±0.159  0.6182    0.6250  0.5000  0.7500
+
+--- Significance Tests ---
+  Effect of gaze on image                       ΔAUC=+0.2619  p=0.0614  ns
+  Effect of speech on image                     ΔAUC=+0.1679  p=0.2294  ns
+  Effect of full fusion vs image                ΔAUC=+0.3274  p=0.0489  *
+  Effect of image on gaze                       ΔAUC=-0.1845  p=0.0835  ns
+  Effect of image on speech                     ΔAUC=-0.1583  p=0.1311  ns
+  Effect of adding image to behavioral          ΔAUC=-0.1083  p=0.2009  ns
+  Marginal effect of speech                     ΔAUC=+0.0655  p=0.3929  ns
+  Marginal effect of gaze                       ΔAUC=+0.1595  p=0.0090  *
+
+--- Modality Dropout ---
+  Drop image      AUC=0.6875  ΔAUC=-0.0239  dep=0.0000
+  Drop gaze       AUC=0.6048  ΔAUC=+0.0588  dep=0.0886
+  Drop speech     AUC=0.5349  ΔAUC=+0.1287  dep=0.1939
+
+--- Error Analysis (21 errors) ---
+  case_001  FN (missed abnormal)  prob=0.459
+  case_002  FN (missed abnormal)  prob=0.468
+  case_010  FP (false alarm)  prob=0.577
+  case_015  FN (missed abnormal)  prob=0.257
+  case_016  FN (missed abnormal)  prob=0.486
+  case_019  FN (missed abnormal)  prob=0.500
+  case_021  FN (missed abnormal)  prob=0.463
+  case_022  FN (missed abnormal)  prob=0.461
+  case_027  FN (missed abnormal)  prob=0.498
+  case_028  FN (missed abnormal)  prob=0.498
+  case_029  FP (false alarm)  prob=0.703
+  case_031  FN (missed abnormal)  prob=0.488
+  case_033  FN (missed abnormal)  prob=0.491
+  case_035  FN (missed abnormal)  prob=0.492
+  case_039  FN (missed abnormal)  prob=0.457
+  case_043  FN (missed abnormal)  prob=0.460
+  case_044  FN (missed abnormal)  prob=0.486
+  case_047  FP (false alarm)  prob=0.589
+  case_048  FN (missed abnormal)  prob=0.459
+  case_049  FP (false alarm)  prob=0.577
+  case_050  FN (missed abnormal)  prob=0.497
+
+--- Key Finding ---
+Best condition: Image + Gaze + Speech  AUC=0.6636
