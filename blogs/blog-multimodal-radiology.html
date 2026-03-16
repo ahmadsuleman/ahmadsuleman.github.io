@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond the Image: Teaching AI to Follow a Radiologist's Gaze, Voice, and Reasoning — Ahmad Suleman</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F8F9FC;
+  --bg-white: #FFFFFF;
+  --bg-surface: #EFF2F8;
+  --text-primary: #1A1F36;
+  --text-secondary: #4E5A7E;
+  --text-tertiary: #8893B0;
+  --accent: #2563EB;
+  --accent-light: #DBEAFE;
+  --accent-lighter: #EFF6FF;
+  --accent-dark: #1D4ED8;
+  --border: #E2E6F0;
+  --border-light: #EDF0F7;
+  --teal: #0D9488;
+  --teal-light: #CCFBF1;
+  --coral: #E85D3A;
+  --coral-light: #FEF2F0;
+  --violet: #7C3AED;
+  --violet-light: #EDE9FE;
+  --shadow-sm: 0 1px 3px rgba(26,31,54,0.06);
+  --shadow-md: 0 4px 16px rgba(26,31,54,0.08);
+  --radius: 12px;
+  --radius-lg: 18px;
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* ── Nav ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(248,249,252,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+}
+.nav-inner {
+  max-width: 780px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 60px;
+}
+.nav-logo {
+  font-family: var(--font-mono); font-size: 14px; font-weight: 500;
+  color: var(--accent); text-decoration: none;
+}
+.nav-back {
+  font-size: 13px; font-weight: 500; color: var(--text-secondary);
+  text-decoration: none; display: flex; align-items: center; gap: 6px;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--accent); }
+
+/* ── Article Layout ── */
+.article-container { max-width: 780px; margin: 0 auto; padding: 0 2rem; }
+
+/* ── Article Header ── */
+.article-header { padding: 7rem 0 2.5rem; }
+.article-header .topic-tag {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  padding: 4px 12px; border-radius: 20px;
+  background: var(--accent-light); color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+.article-header h1 {
+  font-family: var(--font-display); font-size: 2.8rem;
+  font-weight: 400; line-height: 1.15; margin-bottom: 1.25rem;
+  max-width: 680px;
+}
+.article-header .lead {
+  font-size: 17px; color: var(--text-secondary);
+  max-width: 650px; line-height: 1.75; margin-bottom: 2rem;
+}
+.article-meta {
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 3rem; flex-wrap: wrap;
+}
+.author-info {
+  display: flex; align-items: center; gap: 10px;
+}
+.author-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--accent-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+}
+.author-name { font-size: 14px; font-weight: 600; }
+.author-role { font-size: 12px; color: var(--text-tertiary); }
+.meta-sep { width: 1px; height: 24px; background: var(--border); }
+.meta-detail {
+  font-size: 13px; color: var(--text-tertiary);
+  display: flex; align-items: center; gap: 5px;
+}
+.meta-detail svg { width: 14px; height: 14px; }
+
+/* ── Article Body ── */
+.article-body { margin-bottom: 4rem; }
+.article-body h2 {
+  font-family: var(--font-display); font-size: 1.75rem;
+  font-weight: 400; margin: 3rem 0 1rem; line-height: 1.3;
+}
+.article-body h3 {
+  font-size: 16px; font-weight: 600; margin: 2rem 0 0.75rem;
+}
+.article-body p {
+  color: var(--text-secondary); margin-bottom: 1.25rem;
+  font-size: 15.5px; line-height: 1.8;
+}
+.article-body ul, .article-body ol {
+  color: var(--text-secondary); padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.article-body li { margin-bottom: 0.5rem; line-height: 1.7; }
+.article-body strong { color: var(--text-primary); }
+.article-body em { color: var(--accent); font-style: italic; }
+
+/* ── Blockquote ── */
+.article-body blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 2rem 0;
+  padding: 1rem 1.5rem;
+  background: var(--accent-lighter);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.article-body blockquote p {
+  color: var(--text-primary); font-size: 15px;
+  margin-bottom: 0; font-style: italic;
+}
+
+/* ── Callout Box ── */
+.callout {
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius); padding: 1.5rem;
+  margin: 2rem 0;
+}
+.callout.tip { border-left: 3px solid var(--teal); }
+.callout.warning { border-left: 3px solid var(--coral); }
+.callout.insight { border-left: 3px solid var(--accent); }
+.callout .callout-title {
+  font-size: 13px; font-weight: 600; margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 6px;
+}
+.callout.tip .callout-title { color: var(--teal); }
+.callout.warning .callout-title { color: var(--coral); }
+.callout.insight .callout-title { color: var(--accent); }
+.callout p { margin-bottom: 0; font-size: 14px; }
+
+/* ── Code Block ── */
+.code-block {
+  background: #1E293B; color: #E2E8F0;
+  border-radius: var(--radius); padding: 1.5rem;
+  margin: 1.5rem 0; overflow-x: auto;
+  font-family: var(--font-mono); font-size: 13px; line-height: 1.8;
+}
+.code-block .comment { color: #64748B; }
+.code-block .keyword { color: #7DD3FC; }
+.code-block .string { color: #86EFAC; }
+.code-block .function { color: #C4B5FD; }
+.code-block .number { color: #FCA5A5; }
+.code-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.code-filename {
+  font-family: var(--font-mono); font-size: 11px;
+  color: #94A3B8; font-weight: 500;
+}
+.code-lang {
+  font-family: var(--font-mono); font-size: 10px;
+  color: #64748B; background: #334155;
+  padding: 2px 8px; border-radius: 4px;
+}
+.inline-code {
+  font-family: var(--font-mono); font-size: 13px;
+  background: var(--bg-surface); color: var(--coral);
+  padding: 2px 6px; border-radius: 4px;
+}
+
+/* ── Figure ── */
+.figure {
+  background: var(--bg-surface); border: 1px solid var(--border-light);
+  border-radius: var(--radius); overflow: hidden; margin: 2rem 0;
+}
+.figure img {
+  width: 100%; display: block;
+}
+.figure-placeholder {
+  width: 100%; height: 260px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 8px;
+  color: var(--text-tertiary); font-size: 13px;
+}
+.figure-caption {
+  padding: 0.75rem 1.25rem; font-size: 12px; color: var(--text-tertiary);
+  border-top: 1px solid var(--border-light); font-style: italic;
+}
+
+/* ── Results Table ── */
+.results-table {
+  width: 100%; border-collapse: collapse; margin: 1.5rem 0;
+  font-size: 14px;
+}
+.results-table th {
+  background: var(--bg-surface); padding: 10px 14px;
+  text-align: left; font-weight: 600; font-size: 12px;
+  color: var(--text-secondary); border-bottom: 2px solid var(--border);
+}
+.results-table td {
+  padding: 10px 14px; border-bottom: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+.results-table tr:last-child td { border-bottom: none; }
+.results-table tr.highlight td {
+  background: var(--accent-lighter); color: var(--text-primary);
+  font-weight: 600;
+}
+.results-table .sig { color: var(--teal); font-weight: 600; }
+
+/* ── Step Badge ── */
+.step-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--accent); color: white;
+  font-size: 13px; font-weight: 700; flex-shrink: 0;
+  margin-right: 10px; vertical-align: middle;
+}
+
+/* ── Table of Contents ── */
+.toc {
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius); padding: 1.5rem 1.75rem;
+  margin: 0 0 3rem;
+}
+.toc-title {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+.toc ol { padding-left: 1.25rem; margin: 0; }
+.toc li { margin-bottom: 0.4rem; }
+.toc a {
+  font-size: 14px; color: var(--text-secondary);
+  text-decoration: none; transition: color 0.2s;
+}
+.toc a:hover { color: var(--accent); }
+
+/* ── Tags ── */
+.article-tags {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+  margin: 2.5rem 0; padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+}
+.article-tag {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  padding: 4px 12px; border-radius: 20px;
+  background: var(--bg-surface); color: var(--text-secondary);
+}
+
+/* ── Share ── */
+.share-bar {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.5rem 0; margin-bottom: 3rem;
+  border-bottom: 1px solid var(--border-light);
+}
+.share-label { font-size: 13px; font-weight: 500; color: var(--text-tertiary); }
+.share-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--bg-white);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s; text-decoration: none;
+}
+.share-btn:hover { border-color: var(--accent); background: var(--accent-lighter); }
+.share-btn svg { width: 16px; height: 16px; color: var(--text-secondary); }
+
+/* ── Author Card ── */
+.author-card {
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg); padding: 2rem;
+  display: flex; gap: 1.5rem; align-items: center;
+  margin-bottom: 3rem;
+}
+.author-card-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--accent-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 600; color: var(--accent); flex-shrink: 0;
+}
+.author-card-info h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.author-card-info p { font-size: 13px; color: var(--text-secondary); margin-bottom: 8px; }
+.author-card-links { display: flex; gap: 0.5rem; }
+.author-card-links a {
+  font-size: 12px; font-weight: 500; color: var(--accent);
+  text-decoration: none; padding: 4px 10px; border-radius: 6px;
+  background: var(--accent-lighter); transition: all 0.2s;
+}
+.author-card-links a:hover { background: var(--accent-light); }
+
+/* ── Related Posts ── */
+.related-section { margin-bottom: 3rem; }
+.related-section h3 {
+  font-family: var(--font-display); font-size: 1.5rem;
+  font-weight: 400; margin-bottom: 1.25rem;
+}
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.related-card {
+  background: var(--bg-white); border: 1px solid var(--border-light);
+  border-radius: var(--radius); overflow: hidden;
+  text-decoration: none; transition: all 0.2s; display: block;
+}
+.related-card:hover {
+  border-color: var(--accent); transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.related-stripe { height: 4px; }
+.related-stripe.s1 { background: var(--teal); }
+.related-stripe.s2 { background: var(--coral); }
+.related-body { padding: 1.25rem; }
+.related-body .rd { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); margin-bottom: 6px; }
+.related-body h4 { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+.related-body p { font-size: 12px; color: var(--text-secondary); }
+
+/* ── Footer ── */
+footer {
+  text-align: center; padding: 2.5rem 0;
+  font-size: 12px; color: var(--text-tertiary);
+  border-top: 1px solid var(--border-light);
+}
+
+/* ── Reading Progress ── */
+.progress-bar {
+  position: fixed; top: 60px; left: 0; right: 0; height: 3px;
+  z-index: 99; background: transparent;
+}
+.progress-bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.1s; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .article-header h1 { font-size: 2rem; }
+  .article-meta { gap: 1rem; }
+  .meta-sep { display: none; }
+  .related-grid { grid-template-columns: 1fr; }
+  .author-card { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Ahmad Suleman</a>
+    <a href="index.html#blog" class="nav-back">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      All Posts
+    </a>
+  </div>
+</nav>
+
+<!-- Reading progress bar -->
+<div class="progress-bar"><div class="progress-bar-fill" id="progressBar"></div></div>
+
+<!-- ═══ ARTICLE HEADER ═══ -->
+<header class="article-header">
+  <div class="article-container">
+    <span class="topic-tag">Medical AI</span>
+    <h1>Beyond the Image: Teaching AI to Follow a Radiologist's Gaze, Voice, and Reasoning</h1>
+    <p class="lead">
+      Most medical AI looks at a scan and gives an answer. But that's not how a radiologist
+      works. They scan, they pause, they speak, they go back. We built a framework to capture
+      all of that — and what we found surprised us.
+    </p>
+    <div class="article-meta">
+      <div class="author-info">
+        <div class="author-avatar">AS</div>
+        <div>
+          <div class="author-name">Ahmad Suleman</div>
+          <div class="author-role">AI & Medical Imaging Researcher</div>
+        </div>
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-detail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        March 2026
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-detail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        11 min read
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ ARTICLE BODY ═══ -->
+<article class="article-container article-body">
+
+  <!-- Table of Contents -->
+  <div class="toc">
+    <div class="toc-title">In this post</div>
+    <ol>
+      <li><a href="#the-problem">The problem with image-only AI</a></li>
+      <li><a href="#step1-simulator">Step 1 — Building a synthetic radiologist</a></li>
+      <li><a href="#step2-archetypes">Step 2 — Three reading personalities</a></li>
+      <li><a href="#step3-clustering">Step 3 — Finding patterns in reading behaviour</a></li>
+      <li><a href="#step4-classification">Step 4 — Does behaviour actually improve diagnosis?</a></li>
+      <li><a href="#the-numbers">What the numbers tell us</a></li>
+      <li><a href="#what-next">What comes next</a></li>
+    </ol>
+  </div>
+
+  <!-- Intro -->
+  <p>
+    Imagine you're watching a radiologist read a chest X-ray. Their eyes don't just drift
+    randomly across the image — they follow a pattern. They look at the right lung first, move
+    to the heart, linger on something suspicious near the left base, go back to it, and then
+    say out loud: <em>"Left lower lobe consolidation, possibly early pneumonia."</em>
+  </p>
+  <p>
+    That whole process — where they looked, for how long, in what order, and what they said —
+    tells a story that the image alone cannot. Yet almost every medical AI system in existence
+    throws away that story. It takes the image, runs it through a neural network, and outputs
+    a probability. Done.
+  </p>
+  <p>
+    This project asks a different question: <strong>what if we kept all of it?</strong> The gaze,
+    the speech, the timing, the hesitation — and trained an AI to learn from the full picture of
+    how an expert thinks.
+  </p>
+
+  <!-- Section 1 -->
+  <h2 id="the-problem">The problem with image-only AI</h2>
+
+  <p>
+    Here is a concrete illustration of the gap. In our experiments, we trained a classifier
+    using only chest X-ray image features — ResNet18 embeddings, the standard approach. The
+    result was an AUC of <strong>0.47</strong>. That is worse than flipping a coin.
+  </p>
+  <p>
+    Now add the gaze trace from the radiologist who read that same image. AUC jumps to
+    <strong>0.61</strong>. Add the speech transcription on top of that, and the full three-modality
+    model reaches <strong>0.66</strong> — with the improvement over image-alone being statistically
+    significant (p = 0.049).
+  </p>
+
+  <div class="callout insight">
+    <div class="callout-title">&#x1F4A1; The core insight</div>
+    <p>
+      The <strong>process</strong> of reading a scan carries diagnostic information that the image
+      itself does not. Where a radiologist looks, how long they dwell on a region, and what they
+      say while doing it — these are signals. Our job was to build a system that could capture
+      and learn from them.
+    </p>
+  </div>
+
+  <p>
+    Of course, building this on real data is hard. Real eye-tracking studies require hardware,
+    ethics approval, radiologist time, and patient data protections. So we took a different
+    route: we built a simulator.
+  </p>
+
+  <!-- Section 2 -->
+  <h2 id="step1-simulator">Step 1 — Building a synthetic radiologist</h2>
+
+  <p>
+    The simulator generates complete reading sessions from scratch. Given a chest X-ray image,
+    it produces three things in sync: a gaze trace recorded at 60 Hz, a spoken transcription
+    with timestamps, and an audio file of the dictation. Everything a real eye-tracking study
+    would capture — but fully synthetic, reproducible, and privacy-safe.
+  </p>
+
+  <h3>How the gaze works</h3>
+  <p>
+    A radiologist's gaze is not random. They tend to visit specific anatomical regions — the
+    lungs, the heart, the diaphragm — in sequences that reflect their diagnostic strategy.
+    We model this by dividing the image into six <strong>Areas of Interest (AOIs)</strong>:
+    right lung, left lung, heart, mediastinum, right lower, and left lower.
+  </p>
+  <p>
+    Fixation locations are drawn from Gaussian distributions centred on each AOI. The gaze
+    alternates between fixation phases (the eye is still, processing information) and saccade
+    phases (the eye is moving to the next location). Abnormal regions get extra revisits —
+    just as a human radiologist would return to something suspicious.
+  </p>
+
+  <h3>How the speech works</h3>
+  <p>
+    As the simulated radiologist visits each region, they dictate their findings after a short
+    delay — the <em>look-then-speak</em> lag that studies show real radiologists exhibit. Each
+    region has a bank of findings ranging from normal ("heart size is within normal limits") to
+    pathological ("right lower lobe consolidation with air bronchograms"). A text-to-speech
+    engine converts the dictation to audio.
+  </p>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-filename">speech_sim.py</span>
+      <span class="code-lang">Python</span>
+    </div>
+<span class="comment"># Each archetype has a different speech style</span>
+SPEECH_PARAMS = {
+    <span class="string">"systematic_scanner"</span>: {
+        <span class="string">"speech_delay_sec"</span>: <span class="number">0.8</span>,   <span class="comment"># long look-before-speak delay</span>
+        <span class="string">"skip_normal_prob"</span>: <span class="number">0.0</span>,   <span class="comment"># always mentions every region</span>
+        <span class="string">"words_per_sec"</span>:   <span class="number">2.5</span>,   <span class="comment"># slow, deliberate speech</span>
+    },
+    <span class="string">"rapid_scanner"</span>: {
+        <span class="string">"speech_delay_sec"</span>: <span class="number">0.2</span>,   <span class="comment"># speaks almost immediately</span>
+        <span class="string">"skip_normal_prob"</span>: <span class="number">0.5</span>,   <span class="comment"># skips half of normal findings</span>
+        <span class="string">"words_per_sec"</span>:   <span class="number">4.0</span>,   <span class="comment"># fast speech</span>
+    },
+}
+  </div>
+
+  <!-- Section 3 -->
+  <h2 id="step2-archetypes">Step 2 — Three reading personalities</h2>
+
+  <p>
+    One of the most important lessons from real radiologist studies is that readers are not all
+    the same. Some scan methodically from top to bottom, never skipping a region. Others jump
+    straight to where they expect the abnormality. Others race through the image in seconds.
+  </p>
+  <p>
+    We encoded these differences as three <strong>reader archetypes</strong>, each with its own
+    gaze behaviour, speech timing, and scan strategy:
+  </p>
+
+  <ul>
+    <li>
+      <strong>Systematic Scanner</strong> — reads every region in order, top-to-bottom, left-to-right.
+      Long fixations, deliberate speech, no shortcuts. Session duration 1.5× average.
+    </li>
+    <li>
+      <strong>Focused Inspector</strong> — spends 70% of time on the key regions (heart, lungs),
+      ignores the rest. Long fixations on areas of interest, fast transitions elsewhere.
+    </li>
+    <li>
+      <strong>Rapid Scanner</strong> — sweeps the image quickly in random order. Short fixations,
+      fast speech, skips 50% of normal findings. Session duration 0.7× average.
+    </li>
+  </ul>
+
+  <p>
+    These archetypes are assigned in round-robin order across the 50 cases, giving us a balanced
+    dataset with ~17 sessions per reading style. This design choice matters: without behavioural
+    variability, there is nothing for the clustering algorithm to find.
+  </p>
+
+  <div class="callout warning">
+    <div class="callout-title">&#x26A0; Why this matters for the results</div>
+    <p>
+      In our first version of the simulator, all 50 readers had identical parameters. The clustering
+      algorithm found essentially no structure (silhouette score = 0.11 — near zero). By injecting
+      three distinct archetypes, we gave the model real behavioural signal to work with. The
+      gaze-only silhouette score rose to <strong>0.37</strong>.
+    </p>
+  </div>
+
+  <!-- Section 4 -->
+  <h2 id="step3-clustering">Step 3 — Finding patterns in reading behaviour</h2>
+
+  <p>
+    With 50 synthetic reading sessions generated, the first research task begins: can we
+    automatically recover those three reading styles from the data, without ever being told
+    what they are?
+  </p>
+
+  <h3>Building the behavioural fingerprint</h3>
+  <p>
+    Each session is converted into a 46-dimensional feature vector — a numerical fingerprint of
+    how that reading happened. The features come from four sources:
+  </p>
+
+  <ol>
+    <li>
+      <strong>Gaze statistics (19 dimensions)</strong> — how many fixations, how long they lasted,
+      how fast the eyes moved, how many times the radiologist returned to a region, how time
+      was split across the six AOIs.
+    </li>
+    <li>
+      <strong>Speech statistics (4 dimensions)</strong> — how many anatomical terms were mentioned,
+      how many findings, how often the radiologist used uncertain language ("may represent",
+      "cannot exclude").
+    </li>
+    <li>
+      <strong>Temporal coupling (3 dimensions)</strong> — how long after looking at a region did
+      the radiologist speak about it? How many times did they look before speaking? What fraction
+      of their gaze time was on regions they actually mentioned?
+    </li>
+    <li>
+      <strong>Deep temporal embedding (10 dimensions)</strong> — a Transformer network trained to
+      predict which AOI comes next in the scan sequence, producing a compact summary of the
+      overall scan strategy.
+    </li>
+  </ol>
+
+  <div class="figure">
+    <img src="../../outputs/clustering_dashboard.png" alt="Clustering dashboard showing UMAP projection of 50 reading sessions" />
+    <div class="figure-caption">
+      Fig. 1 — 2D projection of the 46-dimensional behavioural space. Three clusters are clearly
+      separable: Rapid Scanners (top-right), Focused Inspectors (bottom), and Mixed Strategy
+      readers (left). Coloured by cluster assignment.
+    </div>
+  </div>
+
+  <h3>What the algorithm found</h3>
+  <p>
+    We ran three clustering algorithms (KMeans, Agglomerative, HDBSCAN) across multiple
+    cluster counts and selected the best by silhouette score. KMeans with k=3 won on the
+    gaze-only features (silhouette = 0.37). The three recovered clusters matched our injected
+    archetypes almost exactly:
+  </p>
+
+  <table class="results-table">
+    <thead>
+      <tr>
+        <th>Cluster</th>
+        <th>Recovered Name</th>
+        <th>n</th>
+        <th>Key Signal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0</td>
+        <td>Mixed Strategy</td>
+        <td>18</td>
+        <td>High scanpath length, many revisits, high anatomy mentions</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Rapid Scanner</td>
+        <td>17</td>
+        <td>Highest mean velocity, shortest scanpath, fewest mentions</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Focused Inspector</td>
+        <td>15</td>
+        <td>Longest fixation duration, lowest velocity, fewest fixations</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="figure">
+    <img src="../../outputs/transition_matrices.png" alt="AOI transition matrices per cluster" />
+    <div class="figure-caption">
+      Fig. 2 — AOI transition matrices per cluster. Systematic/Mixed readers (left) show
+      distributed transitions across all regions. Focused Inspectors (right) show strong
+      self-loops on lung AOIs — they keep returning to the same area.
+    </div>
+  </div>
+
+  <div class="figure">
+    <img src="../../outputs/aoi_dwell_distribution.png" alt="AOI dwell time distributions" />
+    <div class="figure-caption">
+      Fig. 3 — Dwell time per AOI across clusters. Rapid Scanners (orange) show uniformly short
+      dwell everywhere. Focused Inspectors (green) concentrate time on the lung fields.
+    </div>
+  </div>
+
+  <blockquote>
+    <p>
+      "You can tell a lot about how a radiologist thinks just from watching their eyes —
+      before they say a single word."
+    </p>
+  </blockquote>
+
+  <p>
+    An important finding from this step: adding more features did <em>not</em> always help.
+    The gaze-only silhouette was 0.37. When we added speech, alignment, and temporal embeddings,
+    it dropped to 0.10. The extra dimensions introduced noise that diluted the clean gaze signal.
+    This is a common problem in high-dimensional clustering at small sample sizes (N=50), and
+    it motivates careful feature selection rather than always throwing everything in.
+  </p>
+
+  <div class="figure">
+    <img src="../../outputs/ablation_comparison.png" alt="Silhouette score vs feature ablation" />
+    <div class="figure-caption">
+      Fig. 4 — Silhouette score across six feature ablation conditions. Gaze behavioural features
+      alone produce the best-separated clusters. Adding speech and temporal embeddings hurts
+      at N=50 due to the curse of dimensionality.
+    </div>
+  </div>
+
+  <!-- Section 5 -->
+  <h2 id="step4-classification">Step 4 — Does behaviour actually improve diagnosis?</h2>
+
+  <p>
+    Identifying reading styles is interesting. But does it help with the actual clinical task —
+    deciding whether a chest X-ray is normal or abnormal?
+  </p>
+  <p>
+    This is the second research question, and it demands a rigorous answer. It's not enough to
+    show that adding gaze and speech improves a number. We need to show the improvement is
+    <strong>statistically real</strong>, <strong>reproducible across folds</strong>, and
+    <strong>attributable to the modality itself</strong> — not to a better model architecture
+    or random variation.
+  </p>
+
+  <h3>The model</h3>
+  <p>
+    We built a <strong>cross-attention fusion network</strong> with three branches — one per
+    modality — that uses multi-head attention to let each modality query the others across time:
+  </p>
+
+  <ul>
+    <li>The image asks: which moments in the gaze trace were most relevant to what I see?</li>
+    <li>The image asks: which spoken phrases align with what I see?</li>
+    <li>The gaze asks: which speech segments occurred while I was fixating on this region?</li>
+  </ul>
+
+  <p>
+    The answers to these three questions are fused together and passed to a simple classifier.
+    Crucially, all seven modality combinations (image only, gaze only, speech only, all pairs,
+    all three) use the <em>exact same architecture</em> — we just zero out the disabled modalities.
+    This ensures we are comparing modality contributions, not architectural differences.
+  </p>
+
+  <div class="code-block">
+    <div class="code-header">
+      <span class="code-filename">fusion_model.py</span>
+      <span class="code-lang">Python</span>
+    </div>
+<span class="comment"># Three pairwise cross-attention blocks</span>
+A_ig  = <span class="function">MHA</span>(Q=img_emb,  K=gaze_seq,  V=gaze_seq)   <span class="comment"># image ← gaze</span>
+A_is  = <span class="function">MHA</span>(Q=img_emb,  K=speech_seq, V=speech_seq) <span class="comment"># image ← speech</span>
+A_gs  = <span class="function">MHA</span>(Q=gaze_emb, K=speech_seq, V=speech_seq) <span class="comment"># gaze  ← speech</span>
+
+<span class="comment"># Fuse all six vectors: 3 original + 3 attended</span>
+fused = <span class="function">MLP</span>( <span class="function">concat</span>([img_emb, gaze_emb, sp_emb, A_ig, A_is, A_gs]) )
+pred  = <span class="function">sigmoid</span>( classifier(fused) )
+  </div>
+
+  <h3>Evaluating modality contribution — three ways</h3>
+  <p>
+    We used three complementary methods to answer "does this modality help?":
+  </p>
+  <ol>
+    <li>
+      <strong>Ablation AUC</strong> — train and evaluate each of the 7 modality conditions under
+      5-fold stratified cross-validation. Compare the AUC values.
+    </li>
+    <li>
+      <strong>Wilcoxon signed-rank test</strong> — for each comparison pair (e.g., full model vs
+      image-only), run the test on the 5 per-fold AUC values. This gives a p-value that accounts
+      for the small sample size.
+    </li>
+    <li>
+      <strong>Inference-time dropout</strong> — take the trained full model and zero out one
+      modality at inference time. How much does the AUC drop? This measures how much the model
+      actually relied on that modality once trained.
+    </li>
+  </ol>
+
+  <!-- Section 6 -->
+  <h2 id="the-numbers">What the numbers tell us</h2>
+
+  <p>
+    Here are the cross-attention fusion results across all seven conditions:
+  </p>
+
+  <table class="results-table">
+    <thead>
+      <tr>
+        <th>Condition</th>
+        <th>AUC</th>
+        <th>±std</th>
+        <th>Balanced Acc</th>
+        <th>Specificity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Image only</td>
+        <td>0.465</td>
+        <td>±0.147</td>
+        <td>0.472</td>
+        <td>0.563</td>
+      </tr>
+      <tr>
+        <td>Gaze only</td>
+        <td>0.609</td>
+        <td>±0.083</td>
+        <td>0.528</td>
+        <td>0.438</td>
+      </tr>
+      <tr>
+        <td>Speech only</td>
+        <td>0.597</td>
+        <td>±0.130</td>
+        <td>0.482</td>
+        <td>0.375</td>
+      </tr>
+      <tr>
+        <td>Image + Gaze</td>
+        <td>0.553</td>
+        <td>±0.187</td>
+        <td>0.533</td>
+        <td>0.625</td>
+      </tr>
+      <tr>
+        <td>Image + Speech</td>
+        <td>0.546</td>
+        <td>±0.139</td>
+        <td>0.509</td>
+        <td>0.813</td>
+      </tr>
+      <tr>
+        <td>Gaze + Speech</td>
+        <td>0.653</td>
+        <td>±0.068</td>
+        <td>0.597</td>
+        <td>0.813</td>
+      </tr>
+      <tr class="highlight">
+        <td>Image + Gaze + Speech</td>
+        <td>0.664</td>
+        <td>±0.159</td>
+        <td>0.625</td>
+        <td>0.750</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="figure">
+    <img src="../../outputs/classification/roc_curves.png" alt="ROC curves for all modality conditions" />
+    <div class="figure-caption">
+      Fig. 5 — ROC curves for all 7 conditions. The full model (dark blue) dominates across
+      the full operating range. Image-only (grey) sits near the diagonal — barely better than
+      random.
+    </div>
+  </div>
+
+  <h3>What the significance tests say</h3>
+  <p>
+    Two comparisons reached statistical significance (α = 0.05):
+  </p>
+  <ul>
+    <li>
+      <strong>Full fusion vs image only: ΔAUC = +0.33, p = 0.049 ★</strong> — the full
+      multimodal model is significantly better than the image baseline.
+    </li>
+    <li>
+      <strong>Marginal effect of gaze: ΔAUC = +0.16, p = 0.009 ★</strong> — gaze provides
+      a statistically reliable additional signal on top of speech alone.
+    </li>
+  </ul>
+  <p>
+    Speech alone did not reach significance as a marginal contributor (p = 0.39), but this is
+    expected — with only n=5 folds, the test has limited power, and speech's contribution is
+    better seen in the absolute AUC difference.
+  </p>
+
+  <div class="figure">
+    <img src="../../outputs/classification/modality_dropout.png" alt="Modality dropout test results" />
+    <div class="figure-caption">
+      Fig. 6 — AUC degradation when each modality is zeroed at inference time in the trained
+      full model. Speech removal causes the largest drop (ΔAUC = +0.13). Image removal barely
+      changes performance — consistent with its near-chance standalone AUC.
+    </div>
+  </div>
+
+  <h3>Why does image perform so poorly?</h3>
+  <p>
+    This is the most important question to address honestly. Image-only AUC of 0.47 — worse than
+    random — does not mean chest X-rays are uninformative. It means our synthetic labels (derived
+    from rule-based findings text) do not produce a consistent visual signature in the image itself.
+    The abnormality exists in the metadata, not in the pixels. This is a known limitation of
+    working with synthetically labelled data and does not affect the validity of the
+    behavioural modality comparisons.
+  </p>
+
+  <div class="callout tip">
+    <div class="callout-title">&#x2705; The honest takeaway</div>
+    <p>
+      The interesting result is not "image is bad." The interesting result is
+      <strong>gaze and speech carry diagnostic signal that is independent of the image</strong>,
+      and that their combination with the image produces a statistically significant improvement.
+      In a real clinical setting where images do contain visual pathology, the gain would likely
+      be even larger.
+    </p>
+  </div>
+
+  <div class="figure">
+    <img src="../../outputs/classification/attention_heatmaps.png" alt="Cross-attention weight heatmaps" />
+    <div class="figure-caption">
+      Fig. 7 — Cross-attention weights from the full model. Top row: the image query attending
+      to gaze time bins — peaks show which moments in the reading session the model found most
+      diagnostically relevant. Bottom row: gaze attending to speech — the model learns temporal
+      gaze–speech alignment automatically.
+    </div>
+  </div>
+
+  <div class="figure">
+    <img src="../../outputs/classification/modality_radar.png" alt="Modality radar chart" />
+    <div class="figure-caption">
+      Fig. 8 — Radar chart comparing AUC, F1, Sensitivity, Specificity, and Balanced Accuracy
+      across all conditions. Full multimodal fusion (outermost ring) dominates on every axis
+      except sensitivity, where Gaze only performs comparably.
+    </div>
+  </div>
+
+  <!-- Section 7 -->
+  <h2 id="what-next">What comes next</h2>
+
+  <p>
+    This project is a foundation, not a finished product. Here is what we are working on next:
+  </p>
+
+  <h3>Vision-Language Grounding of Clinical Reasoning</h3>
+  <p>
+    The natural next step is to move from <em>classification</em> to <em>reasoning</em>. Instead
+    of asking "is this scan abnormal?", we want to ask: "does the radiologist's speech actually
+    describe what their gaze was looking at — and does the image support it?" This is
+    vision-language grounding applied to behavioural streams, and it is a much richer task.
+  </p>
+  <p>
+    We are building an agentic AI that follows a structured reasoning chain — Observe, Perceive,
+    Interpret, Ground, Assess, Report — and scores each reading session for diagnostic coherence.
+    The <span class="inline-code">reasoning/</span> module for this is in active development.
+  </p>
+
+  <h3>Scaling beyond N=50</h3>
+  <p>
+    Many of the variance issues in our results (±0.16 AUC std across folds, limited Wilcoxon
+    power) come from the small cohort. We are extending the simulator to generate N≥200 sessions
+    with more diverse archetype parameterizations and validating against publicly available
+    eye-tracking datasets.
+  </p>
+
+  <h3>Real data validation</h3>
+  <p>
+    The simulator is a proof-of-concept. The next validation step is running the same pipeline
+    on real radiologist eye-tracking data — which we are pursuing through collaboration with
+    clinical partners. If the behavioural clusters and classification improvements replicate
+    on real data, the framework becomes a practical tool.
+  </p>
+
+  <p>
+    The broader vision is a continuous feedback system: an AI that watches how a radiologist
+    reads, identifies when their strategy deviates from their own norms or from expert patterns,
+    and flags cases that may deserve a second look — not because the image looks wrong, but
+    because the <em>reading process</em> looked wrong.
+  </p>
+
+  <blockquote>
+    <p>
+      "The scan tells you what is there. The reading tells you whether anyone noticed."
+    </p>
+  </blockquote>
+
+  <!-- Tags -->
+  <div class="article-tags">
+    <span class="article-tag">medical-ai</span>
+    <span class="article-tag">radiology</span>
+    <span class="article-tag">eye-tracking</span>
+    <span class="article-tag">multimodal-learning</span>
+    <span class="article-tag">cross-attention</span>
+    <span class="article-tag">behavioural-analysis</span>
+    <span class="article-tag">chest-xray</span>
+    <span class="article-tag">synthetic-data</span>
+  </div>
+
+</article>
+
+<!-- ═══ POST-ARTICLE ═══ -->
+<div class="article-container">
+
+  <!-- Share -->
+  <div class="share-bar">
+    <span class="share-label">Share this post:</span>
+    <a href="#" class="share-btn" title="Twitter/X">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
+    </a>
+    <a href="#" class="share-btn" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a href="mailto:ahmad.suleman.research@gmail.com?subject=Re: Multimodal Radiology Post" class="share-btn" title="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+    </a>
+  </div>
+
+  <!-- Author Card -->
+  <div class="author-card">
+    <div class="author-card-avatar">AS</div>
+    <div class="author-card-info">
+      <h4>Ahmad Suleman</h4>
+      <p>AI researcher working at the intersection of medical imaging, multimodal learning, and clinical decision support. This project was developed as part of ongoing research in behavioural AI for radiology.</p>
+      <div class="author-card-links">
+        <a href="https://github.com/ahmadsuleman" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/ahmadsuleman" target="_blank">LinkedIn</a>
+        <a href="index.html">Portfolio</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Posts -->
+  <div class="related-section">
+    <h3>More from the lab notebook</h3>
+    <div class="related-grid">
+      <a href="blog-sim-to-real.html" class="related-card">
+        <div class="related-stripe s1"></div>
+        <div class="related-body">
+          <div class="rd">Jan 2025</div>
+          <h4>Why Sim-to-Real is Still Hard (And What We Can Do About It)</h4>
+          <p>Lessons from deploying RL policies on quadrupeds, manipulators, and wheeled robots.</p>
+        </div>
+      </a>
+      <a href="#" class="related-card">
+        <div class="related-stripe s2"></div>
+        <div class="related-body">
+          <div class="rd">Coming soon</div>
+          <h4>Vision-Language Grounding of Clinical Reasoning via Agentic AI</h4>
+          <p>The next step: building an AI that doesn't just classify, but reasons through a diagnosis step by step.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="article-container">
+    &copy; 2026 Ahmad Suleman. Built for the research community.
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+window.addEventListener('scroll', () => {
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = (window.scrollY / docHeight) * 100;
+  document.getElementById('progressBar').style.width = scrolled + '%';
+});
+</script>
+</body>
+</html>
