@@ -841,7 +841,7 @@ pred  = <span class="function">sigmoid</span>( classifier(fused) )
   </table>
 
   <div class="figure">
-    <img src="../../outputs/classification/roc_curves.png" alt="ROC curves for all modality conditions" />
+    <img src="images/roc_curves.png" alt="ROC curves for all modality conditions" />
     <div class="figure-caption">
       Fig. 5 — ROC curves for all 7 conditions. The full model (dark blue) dominates across
       the full operating range. Image-only (grey) sits near the diagonal — barely better than
@@ -870,7 +870,7 @@ pred  = <span class="function">sigmoid</span>( classifier(fused) )
   </p>
 
   <div class="figure">
-    <img src="../../outputs/classification/modality_dropout.png" alt="Modality dropout test results" />
+    <img src="images//modality_dropout.png" alt="Modality dropout test results" />
     <div class="figure-caption">
       Fig. 6 — AUC degradation when each modality is zeroed at inference time in the trained
       full model. Speech removal causes the largest drop (ΔAUC = +0.13). Image removal barely
@@ -900,7 +900,7 @@ pred  = <span class="function">sigmoid</span>( classifier(fused) )
   </div>
 
   <div class="figure">
-    <img src="../../outputs/classification/attention_heatmaps.png" alt="Cross-attention weight heatmaps" />
+    <img src="images//attention_heatmaps.png" alt="Cross-attention weight heatmaps" />
     <div class="figure-caption">
       Fig. 7 — Cross-attention weights from the full model. Top row: the image query attending
       to gaze time bins — peaks show which moments in the reading session the model found most
@@ -910,7 +910,7 @@ pred  = <span class="function">sigmoid</span>( classifier(fused) )
   </div>
 
   <div class="figure">
-    <img src="../../outputs/classification/modality_radar.png" alt="Modality radar chart" />
+    <img src="images//modality_radar.png" alt="Modality radar chart" />
     <div class="figure-caption">
       Fig. 8 — Radar chart comparing AUC, F1, Sensitivity, Specificity, and Balanced Accuracy
       across all conditions. Full multimodal fusion (outermost ring) dominates on every axis
